@@ -29,6 +29,7 @@ def validate(input):
 if __name__ == "__main__":
     main("Enter filename in current directory:")
 
+# python -m pytest check-file.py
 # valid: 'print-file.py'
 # invalid: None, '', 'nonexistent'
 def test_01():
