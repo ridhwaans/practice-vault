@@ -1,0 +1,14 @@
+{
+  "name": "interviews",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.1.0"
+  }
+}
