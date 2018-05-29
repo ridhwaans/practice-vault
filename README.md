@@ -1,4 +1,4 @@
-# exercise-vault
+# practice-vault
 
 ### exercism
 ```
@@ -18,4 +18,9 @@ pip install -r requirements.txt
 jasmine <javascript_test>.js
 rspec <ruby_test>.rb
 python -m pytest <python_test>.py
+```
+
+### daily-coding-problem
+```
+node <javascript_solution>.js or jsfiddle
 ```
