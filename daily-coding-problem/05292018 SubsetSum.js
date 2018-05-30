@@ -85,5 +85,7 @@ subsetSum.setList([3, 34, 4, 12, 5, 2]);
 console.log("Does subset sum exist? " +  subsetSum.exists(0));
 console.log("Does subset sum exist? " +  subsetSum.exists(9));
 
-
-
+/* See also:
+	https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x/
+	https://www.youtube.com/watch?v=nqlNzOcnCfs&t=186s
+*/
