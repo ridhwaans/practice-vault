@@ -6,3 +6,49 @@ For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should g
 
 You can modify the input array in-place.*/
 
+MissingPositive = function() {}
+
+MissingPositive.prototype.first = (nums) => {
+	try{
+		validate(nums);
+		
+		var map = [];
+	    for (i = 0, l = nums.length; i <= l - 1; i++) {
+	        if (nums[i] > 0) {
+	            map[nums[i]] = true;
+	        }
+	    }
+	    for (i = 1, l = map.length; i <= l - 1; i++) {
+	        if (!map[i]) {
+	            return i;
+	        }
+	    }
+	    return i;
+
+	}
+	catch(err){
+		console.log(err);
+		return false;
+	}
+};
+
+function validate(list){
+	if (list && list.length > 0){
+		checkInteger = function(element){
+			return Number.isInteger(element);
+		}
+
+		if (list.every(checkInteger) == false){
+			throw "List does not contain integers";
+		}
+	} else {
+		throw "List is not valid";
+	}
+}
+
+// module.exports = MissingPositive
+
+/*
+See also:
+https://www.geeksforgeeks.org/find-the-first-missing-number/
+ */
