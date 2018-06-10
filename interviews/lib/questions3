@@ -1,0 +1,5 @@
+Given two different strings, one with backspaces (keypresses), find if they are equivalent or not
+Given a list of numbers, find the number containing the longest sequence of increasing or decreasing numbers
+lunch
+Given a word, find a list of all possible words from a dictionary which contain letters from the input word
+Given a log file with one message per line, find the top three occurring log messages
