@@ -1,6 +1,4 @@
-Question 2:
-
-To solve this challenge, write an HTTP GET method to retrieve information from a particular movie database. Complete the function in the editor; it has one parameter: a string, substr. The function must perform the following tasks:
+/*To solve this challenge, write an HTTP GET method to retrieve information from a particular movie database. Complete the function in the editor; it has one parameter: a string, substr. The function must perform the following tasks:
 
 Query https://jsonmock.hackerrank.com/api/movies/search/?Title=substr (where substr is the value of substr). The query response from the website is a JSON response with the following five fields:
 • page: The current page.
@@ -169,44 +167,6 @@ They Call Me Spiderman
 The Death of Spiderman
 Spiderman in Cannes
 We then store each title in our titles array, sort it in ascending order, and return it as our answer.
-
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import java.net.*;
-import com.google.gson.*;
-
-public class Solution {
-/*
- * Complete the function below.
- */
-
-static String[] getMovieTitles(String substr) {
-
-      //complete function here
-}
+*/
 
 
-public static void main(String[] args) throws IOException{
-    Scanner in = new Scanner(System.in);
-    final String fileName = System.getenv("OUTPUT_PATH");
-    BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
-    String[] res;
-    String _substr;
-    try {
-        _substr = in.nextLine();
-    } catch (Exception e) {
-        _substr = null;
-    }
-
-    res = getMovieTitles(_substr);
-    for(int res_i=0; res_i < res.length; res_i++) {
-        bw.write(String.valueOf(res[res_i]));
-        bw.newLine();
-    }
-
-    bw.close();
-    } 
-}

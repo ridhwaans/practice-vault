@@ -20,7 +20,7 @@ class Node:
         self.left = left
         self.right = right
 
- 	def serialize(self, root):
+    def serialize(self, root):
         self.vals = []
         def encode(node):
             if node:
@@ -32,8 +32,7 @@ class Node:
         encode(root)
         return ' '.join(self.vals)
 
-
-	def deserialize(self, data):
+    def deserialize(self, data):
         def decode(vals):
             val = next(vals)
             if val == '#':
@@ -44,3 +43,6 @@ class Node:
             return node
         vals = iter(data.split())
         return decode(vals)
+
+node = Node('root', Node('left', Node('left.left')), Node('right'))
+assert deserialize(serialize(node)).left.left.val == 'left.left'

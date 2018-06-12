@@ -30,8 +30,8 @@ if __name__ == "__main__":
     main("Enter filename in current directory:")
 
 # python -m pytest check-file.py
-# valid: 'print-file.py'
-# invalid: None, '', 'nonexistent'
+# valid: ['print-file.py']
+# invalid: [None, '', 'nonexistent']
 def test_01():
     with mock.patch.object(__builtin__, 'raw_input', side_effect=['check-file.py']):
         assert main("Enter filename") == "File exists"
