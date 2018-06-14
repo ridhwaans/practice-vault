@@ -170,6 +170,38 @@ We then store each title in our titles array, sort it in ascending order, and re
 */
 
 var https = require('https');
+var axios = require('axios');
+
+function fetchData(substr) {
+  return new Promise(function(resolve,reject){
+    let url = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=' + substr;
+    https.get(url, (res) => {
+      res.setEncoding('utf8');
+      res.on('data', function(body) {
+        let response = JSON.parse(body);
+        let totalPages = response.total_pages;
+        let movieTitles = [];
+        for (let i = 1; i <= totalPages; i++) {
+          let currentPage = i;
+          url = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=' + substr + '&page=' + currentPage;
+          console.log("page: %i, query: %s",i,url);
+          https.get(url, (res) => {
+            res.setEncoding('utf8');
+            res.on('data', function(body) {
+              response = JSON.parse(body);
+              movies = response.data;
+              for (let i = 0; i < movies.length; i++) {
+                  movieTitles.push(movies[i].Title);
+              }
+              console.log(movieTitles);
+            })
+          })
+        }
+        resolve(movieTitles);
+      })
+    })
+  });
+}
 
 // function fetchData(substr) {
 //     let totalPages = 1;
@@ -192,27 +224,29 @@ var https = require('https');
 //     }
 // }
 
-const fetchData = (substr) => {
-  const getMovieData = Array.from({length: 2}, (_,i) => {
-    const url = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=' + substr + "&page=" + i;
-    return axios.get(url)
-  })
-  axios.all(getMovieData)
-    .then(axios.spread((...movieData) => {
-      for(let movieRequest of movieData) {
-        console.log(movieRequest.data)
-      }
-    }))
-}
+// const fetchData = (substr) => {
+//   const getMovieRequests = Array.from({length: 2}, (_,i) => {
+//     const url = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=' + substr + "&page=" + i;
+//     return axios.get(url)
+//   })
+//   axios.all(getMovieRequests)
+//     .then(axios.spread((...movieRequests) => {
+//       for(let movieRequest of movieRequests) {
+//         console.log(movieRequest.data)
+//       }
+//     }))
+// }
 
 function getMovieTitles(substr) {
-    fetchData(substr);
+    fetchData(substr)
+      .then(function(movieTitles) { 
+        console.log(movieTitles);
+    })
 }
  
 getMovieTitles("spiderman");
 
 
-
-
+// See also: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
 
 
