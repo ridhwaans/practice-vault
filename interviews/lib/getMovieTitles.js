@@ -169,10 +169,27 @@ Spiderman in Cannes
 We then store each title in our titles array, sort it in ascending order, and return it as our answer.
 */
 
-var https = require('https');
 var axios = require('axios');
+var https = require('https');
 
-function fetchData(substr) {
+makeRequest = (url) => {
+  return new Promise(function(resolve, reject){
+    https.get(url, (res) => {
+      res.setEncoding('utf8');
+      res.on('data', function(body) {
+        response = JSON.parse(body);
+        movies = response.data;
+        movieTitles = [];
+        for (let i = 0; i < movies.length; i++) {
+            movieTitles.push(movies[i].Title);
+        }
+        resolve(movieTitles);
+      })
+    })
+  }); 
+}
+
+function makePromises(substr) {
   return new Promise(function(resolve,reject){
     let url = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=' + substr;
     https.get(url, (res) => {
@@ -180,28 +197,33 @@ function fetchData(substr) {
       res.on('data', function(body) {
         let response = JSON.parse(body);
         let totalPages = response.total_pages;
-        let movieTitles = [];
+        let requestPromises = [];
         for (let i = 1; i <= totalPages; i++) {
-          let currentPage = i;
+          currentPage = i;
           url = 'https://jsonmock.hackerrank.com/api/movies/search/?Title=' + substr + '&page=' + currentPage;
-          console.log("page: %i, query: %s",i,url);
-          https.get(url, (res) => {
-            res.setEncoding('utf8');
-            res.on('data', function(body) {
-              response = JSON.parse(body);
-              movies = response.data;
-              for (let i = 0; i < movies.length; i++) {
-                  movieTitles.push(movies[i].Title);
-              }
-              console.log(movieTitles);
-            })
-          })
+          console.log("page: %i, query: %s",currentPage,url);
+          requestPromises.push(makeRequest(url));
         }
-        resolve(movieTitles);
+        resolve(requestPromises);
       })
     })
   });
 }
+
+function getMovieTitles(substr) {
+    makePromises(substr)
+    .then(function(promises) { 
+      Promise.all(promises)
+      .then(callback)
+    })
+}
+
+callback = function(data){
+    console.log(data);
+}
+
+getMovieTitles("spiderman");
+
 
 // function fetchData(substr) {
 //     let totalPages = 1;
@@ -236,16 +258,6 @@ function fetchData(substr) {
 //       }
 //     }))
 // }
-
-function getMovieTitles(substr) {
-    fetchData(substr)
-      .then(function(movieTitles) { 
-        console.log(movieTitles);
-    })
-}
- 
-getMovieTitles("spiderman");
-
 
 // See also: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
 
