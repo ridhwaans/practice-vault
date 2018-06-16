@@ -11,3 +11,22 @@ def cons(a, b):
 Implement car and cdr.
 """
 
+def cons(a, b):
+    def pair(f):
+        return f(a, b)
+    return pair
+    
+def car(pair):
+	def first(cons):
+		return a
+	return first
+
+def cdr(pair):
+	def last(cons):
+		return b
+	return last
+
+
+print "car(cons(3, 4)) is {0}".format(car(cons(3,4)))
+print "cdr(cons(3, 4)) is {0}".format(cdr(cons(3,4)))
+
