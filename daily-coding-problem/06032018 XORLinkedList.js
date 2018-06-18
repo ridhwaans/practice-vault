@@ -10,3 +10,14 @@ have access to get_pointer and dereference_pointer functions that converts betwe
 nodes and memory addresses.
  */
 
+Node = function(value){
+	this.both = value;
+}
+
+function XORLinkedList = () => {
+	this.element = null;
+}
+
+XORLinkedList.prototype.add(element){
+
+}

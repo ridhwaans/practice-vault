@@ -37,7 +37,7 @@ class Node:
             val = next(vals)
             if val == '#':
                 return None
-            node = TreeNode(int(val))
+            node = Node(int(val))
             node.left = decode(vals)
             node.right = decode(vals)
             return node

@@ -30,3 +30,19 @@ def cdr(pair):
 print "car(cons(3, 4)) is {0}".format(car(cons(3,4)))
 print "cdr(cons(3, 4)) is {0}".format(cdr(cons(3,4)))
 
+# FUNCTIONS
+
+# Rename_files
+# Search and replace filesnames in directory using regex
+# Usage: rename /my/folder/* 
+# 				(^(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])(2018)\s(\w+))(\.\w+$)
+# 				(^(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])(18)\s(\w+))(\.\w+$)
+rename_files() {
+    for file in {$1}*
+	do
+	    if [ -f "$file" ]
+	    then
+	          sed 's/(^(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])(2018)\s(\w+))(\.\w+$)/(^(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])(18)\s(\w+))(\.\w+$)/g' "$file"
+	    fi
+	done
+}
