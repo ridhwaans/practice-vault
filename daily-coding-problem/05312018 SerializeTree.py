@@ -46,3 +46,7 @@ class Node:
 
 node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
+
+
+# See also:
+# https://gist.github.com/BiruLyu/8d314ef55539176646476da3c7d3309c
