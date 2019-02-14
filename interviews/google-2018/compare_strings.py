@@ -1,47 +1,64 @@
 #!/usr/bin/env python
-import argparse
 import __builtin__
-
 # Given two different strings, one with backspaces (keypresses), find if they are equivalent or not
 
 def main():
-    parser = argparse.ArgumentParser(description="Enter two strings without or without backspaces")
-    parser.add_argument("s1", type=str, help="The first string.")
-    parser.add_argument("s2", type=str, help="The second string.")
-    args = parser.parse_args()
-    print(compare(args.s1, args.s2))
+    true_testcases = (
+    ("abc", "abc"),
+    ("abc", "abcde\b\b"),
+    ("abcdef", "\b\babcdef\bf"),
+    ("", "\b\b\b"),
+    ("Toronto", "Torooo\b\bntt\bo"))
+
+    false_testcases = (
+    ("a", "a\b"),
+    ("a", "a\b\b"),
+    ("abc", "abc\bd\be"),
+    )
+
+    print([compare(s1, s2) for s1, s2 in true_testcases])
+    print([compare(s1, s2) for s1, s2 in false_testcases])
 
 def compare(s1, s2):
     BACKSPACE = '\b'
-    cursor = 0;
-    pointer1 = 0; pointer2 = 0; # current position in backspaced string. 
+    i, j = len(s1) - 1, len(s2) - 1
 
-    cannon_len1 = len(s1); cannon_len2 = len(s2); # length of the cannonical string
+    while i >= 0 or j >= 0:
+        ignore = 0
+        while i >= 0:
+            if s1[i] == BACKSPACE:
+                ignore += 1
+            elif ignore > 0:
+                ignore -= 1
+            else:
+                break
+            i -= 1
 
-    num_diff = 0
-    while True:
-        if s1[pointer1] == BACKSPACE or s2[pointer2] == BACKSPACE:
-            # decrement the cursor and undo the previous compare
-            cursor -= 1; 
-            if s1[cursor] != s2[cursor]:
-                num_diff -= 1
-            # decrement the cannonical lengths appropriately
-            cannon_len1 -= 2 if s1[pointer1] == BACKSPACE else 0
-            cannon_len2 -= 2 if s2[pointer2] == BACKSPACE else 0
-        else:
+        ignore = 0
+        while j >= 0:
+            if s2[j] == BACKSPACE:
+                ignore += 1
+            elif ignore > 0:
+                ignore -= 1
+            else:
+                break
+            j -= 1
 
-            if s1[pointer1] != s2[pointer2]:
-                num_diff += 1
-            cursor += 1
+        if i < 0 and j < 0:
+            # No more characters to try and match
+            return True
 
-        # increment the pointers, making sure we don't run off then end 
-        pointer1 += 1; pointer2 += 1;
-        if pointer1 == len(s1) and pointer2 == len(s2):
-            break
-        if pointer1 == len(s1): pointer1 -= 1
-        if pointer2 == len(s2): pointer2 -= 1
+        if (i < 0 and j >= 0) or (i >= 0 and j < 0):
+            # One string exhausted before the other
+            return False
 
-    return num_diff == 0 and cannon_len1 == cannon_len2
+        if s1[i] != s2[j]:
+            return False
+
+        i -= 1
+        j -= 1
+
+    return True
 
 if __name__ == "__main__":
     main()
