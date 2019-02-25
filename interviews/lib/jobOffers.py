@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-import pytest
-
 '''
 def jobOffers(scores, lowerLimits, upperLimits):
 
@@ -19,6 +17,7 @@ Output: [3,1]
 Assumptions:
 scores, lowerLimits, upperLimits are lists of integers
 '''
+import pytest
 
 def jobOffers(scores, lowerLimits, upperLimits):
     if len(lowerLimits) != len(upperLimits):
