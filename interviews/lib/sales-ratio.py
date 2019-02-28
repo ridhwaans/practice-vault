@@ -1,10 +1,8 @@
 #!/usr/bin/env python
-import os
-import numpy
-import pandas 
+
 import argparse
-from datetime import datetime
-import __builtin__
+import os
+import pandas 
 import json
 
 def main():
@@ -13,64 +11,43 @@ def main():
     parser.add_argument("product_data", type=lambda y: validate(parser, y), help="ProductData.json file")
     args = parser.parse_args()
     sales_data = pandas.read_csv(args.sales_data)
+    sales_data.Order_Date = pandas.to_datetime(sales_data.Order_Date, format='%Y-%m-%d %H:%M:%S.%f')
     sales_data.Ship_Date = pandas.to_datetime(sales_data.Ship_Date, format='%Y-%m-%d %H:%M:%S.%f')
-    #sales_data['frequency'] = sales_data.groupby('Product_ID')['Product_ID'].transform('count')
-    #sales_data.set_index('Product_ID', inplace=True)
     sales_data.sort_values('Product_ID', inplace=True)
 
     with open(args.product_data) as file:
         product_data = json.load(file)
-
+    # one assuption I made was to query for the Order_date and not Ship_date because the assignment uses order date in its peak/nonpeak products definition
+    # replacing sales_data.Order_Date with sales_data.Ship_Date will return five different product IDs
     peak_products = sales_data[sales_data.Ship_Date.dt.month.isin([10,11,12])]
-    #peak_products = peak_products.Product_ID.value_counts().sort_index() #.nlargest(5)
-    #peak_products['frequency'] = peak_products.groupby('Product_ID')['Product_ID'].transform('count')
-    #peak_products.reset_index(drop=True, inplace=True)
-    #peak_products.set_index('Product_ID', inplace=True)
-    #peak_products.sort_values('Product_ID', inplace=True)
-    #peak_products['frequency'] = peak_products.groupby('Product_ID')['Product_ID'].transform('count')
     peak_products = peak_products.Product_ID.value_counts().reset_index()
     peak_products.columns = ['Product_ID', 'count']
     peak_products.sort_values('Product_ID', inplace=True)
-    #peak_products.set_index('Product_ID', inplace=True)
-    #peak_products.sort_index(inplace=True)
-    print(peak_products)
+    #print(peak_products)
 
     non_peak_products = sales_data[sales_data.Ship_Date.dt.month.between(1,9, inclusive=True)]
-    #non_peak_products = non_peak_products.Product_ID.value_counts().sort_index()   #.nsmallest(5)
-    #non_peak_products['frequency'] = non_peak_products.groupby('Product_ID')['Product_ID'].transform('count')
-    #non_peak_products.set_index('Product_ID', inplace=True)
-    #non_peak_products.sort_values('Product_ID', inplace=True)
-    #non_peak_products['frequency'] = non_peak_products.groupby('Product_ID')['Product_ID'].transform('count')
     non_peak_products = non_peak_products.Product_ID.value_counts().reset_index()
     non_peak_products.columns = ['Product_ID', 'count']
     non_peak_products.sort_values('Product_ID', inplace=True)
-    #non_peak_products.set_index('Product_ID', inplace=True)
-    #non_peak_products.sort_index(inplace=True)
-    print(non_peak_products)
+    #print(non_peak_products)
     
-    #common_products = peak_products.join(non_peak_products, on='Product_ID')
-    #common_products = pandas.concat([peak_products,non_peak_products], axis=1, join='inner')
     common_products = pandas.merge(peak_products, non_peak_products, on=['Product_ID'])
     common_products.columns = ['Product_ID','peak_frequency', 'non_peak_frequency']
     common_products.reset_index(inplace=True, drop=True)
     common_products['frequency_ratio'] = common_products.peak_frequency / common_products.non_peak_frequency
     
-    topfive = common_products.nlargest(5, ['frequency_ratio'])['Product_ID'].tolist()
-
-    print(topfive)
+    print(common_products.nlargest(5, ['frequency_ratio']))
+    topfive = common_products.nlargest(5, ['frequency_ratio'])['Product_ID'].tolist() 
+    print('The top five product types with the best peak / non-peak sales ratio are: \n' + str(topfive))
+    
+    '''
+    One issue I came across in the take home was  The product_data.json file provided (attached) had incomplete data and was missing information (product name, type, class, packaging) on some product ids. The missing product ids were:
+    'CSN1059', 'TRPT3378', 'GRKS8013', 'VVRE4106', 'TRPT4546' 'IRI1672', 'GRKS8012', 'WDLN2941', 'BCMH2001', 'CHMB1696'
+    This issue was a potential blocker in my submission so my options were to either alter my solution to omit some information on the top 5 peak/non-peak sales ratios or use a new product_data.json which contains the missing data.
+    '''
     for key in product_data:
         if str(key["Product_Id"]) in topfive:
             print(key["Product_Id"] + ': ' + key["Product_Name"])
-    #for index, row in common_products.nlargest(5, ['frequency_ratio']).iterrows():
-    #    print(row['Product_ID'], row['frequency_ratio'])
-
-
-
-    #common_products = pandas.merge(peak_products, non_peak_products, on='Product_ID', how='inner')
-    #print(common_products)
-    #df = df.loc[(df['Ship_Date']>=date1) & (df['Ship_Date']<=date2)]
-    #print(df.iloc[:10,:10])    
-
 
 def validate(parser, arg):
     arg = os.path.abspath(arg)
@@ -83,16 +60,21 @@ if __name__ == "__main__":
     main()
 
 '''
-sales_data.Ship_Date >
+Sample output:
 
-df.loc[datetime.date(month=10,day=1):datetime.date(month=12,day=31)]
+if Order_Date is used:
+    Product_ID  peak_frequency  non_peak_frequency  frequency_ratio
+     IRI1672              64                   1             64.0
+    GRKS8012              41                   1             41.0
+    WDLN2941              30                   1             30.0
+    BCMH2001              54                   2             27.0
+    CHMB1696              26                   1             26.0
 
-airports[(airports.iso_region == 'US-CA') & (airports.type == 'seaplane_base')]
-
-airports[(airports.iso_region == 'US-CA') & (airports.type == 'large_airport')]
-[['Product_ID', 'COUNT(Product_ID)']]
-
-airports.groupby(['Product_ID'])
-
-.sort_values('COUNT(Product_ID)')
+if Ship_Date is used:
+    Product_ID  peak_frequency  non_peak_frequency  frequency_ratio
+     CSN1059              95                   1             95.0
+    TRPT3378              55                   1             55.0
+    GRKS8013              39                   1             39.0
+    VVRE4106              31                   1             31.0
+    TRPT4546              30                   1             30.0
 '''
