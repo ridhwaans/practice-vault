@@ -1,20 +1,47 @@
 '''
 Check if a string is a palindrome. Ignore all special characters, whitespace, numbers
-TODO
-Defensive programming/graceful handling
-unit tests
 '''
 import re
+import mock
+import pytest
 
-input_string = "racecar"
-input_string = input_string.case_fold()
-input_string = re.sub('[^a-zA-Z]+','',input_string)
-reverse_string = ''.join(reversed(input_string))
+def isPalindrome():
+    input_string = raw_input("Enter a string to check for palindrome: ") #raw_input is python2.7+ only
+    input_string = re.sub('[^a-zA-Z]+','',input_string)
+    input_string = input_string.lower() # case_fold() is python3
+    reverse_string = ''.join(reversed(input_string))  
+    if (input_string is None) or not (input_string):
+        return "empty"
+    if input_string == reverse_string:
+        return "is a palindrome"
+    else:
+        return "not a palindrome"
 
-if input_string == reverse_string:
-	print "is a palindrome"
-else:
-	print "not a palindrome"
+# python -m pytest wayfair-2019.py
+def test_isPalindrome():
+    with mock.patch('__builtin__.raw_input', return_value=""):
+        assert isPalindrome() == "empty"
+    with mock.patch('__builtin__.raw_input', return_value="   "):
+        assert isPalindrome() == "empty"
+    with mock.patch('__builtin__.raw_input', return_value="  ? . , "):
+        assert isPalindrome() == "empty"
+    with mock.patch('__builtin__.raw_input', return_value="racecar"):   
+        assert isPalindrome() == "is a palindrome"
+    with mock.patch('__builtin__.raw_input', return_value="rAce Car"):
+        assert isPalindrome() == "is a palindrome"
+    with mock.patch('__builtin__.raw_input', return_value="race c$ar?"):
+        assert isPalindrome() == "is a palindrome"
+    with mock.patch('__builtin__.raw_input', return_value="racecarwrong"):
+        assert isPalindrome() == "not a palindrome"
+    with mock.patch('__builtin__.raw_input', return_value="@ra$cecarWrong"):
+        assert isPalindrome() == "not a palindrome"
+
+'''
+https://stackoverflow.com/a/3987107/3577482
+'''
+if __name__ == "__main__":
+    isPalindrome()
+    #test_isPalindrome()
 
 '''
 SQL exercises:
