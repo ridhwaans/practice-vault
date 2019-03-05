@@ -60,4 +60,17 @@ Count the number of employees for each salary bracket
         WHEN salary BETWEEN 40001 AND 50000 THEN "Group 5"
     END AS salary_group, count(*) AS employees_count
 from employees group by salary_group
+
+What happens when you write to the database at the same time?
+Design a SQL schema for movie titles, genre, actors, year
+Find all movies in the comedy genre that do not contain the actor Adam Sandler in them
+
+> SELECT m.titles FROM movies AS m 
+INNER JOIN actors AS a ON m.actor_id = a.id 
+INNER JOIN genres AS g ON m.genre_id = g.id 
+WHERE m.genre_id = 1 AND 
+m.actor_id NOT IN (SELECT a.id FROM actors AS a WHERE a.name = 'Adam Sandler' LEFT OUTER JOIN genres AS g ON a.genre_id = genre.id)
+
+Systems design: 
+Design a tweet url shortener service with high load
 '''
