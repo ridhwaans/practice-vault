@@ -11,7 +11,7 @@ def isPalindrome():
     input_string = input_string.lower() # case_fold() is python3
     reverse_string = ''.join(reversed(input_string))  
     if (input_string is None) or not (input_string):
-        return "empty"
+        return "invalid"
     if input_string == reverse_string:
         return "is a palindrome"
     else:
@@ -20,11 +20,11 @@ def isPalindrome():
 # python -m pytest wayfair-2019.py
 def test_isPalindrome():
     with mock.patch('__builtin__.raw_input', return_value=""):
-        assert isPalindrome() == "empty"
+        assert isPalindrome() == "invalid"
     with mock.patch('__builtin__.raw_input', return_value="   "):
-        assert isPalindrome() == "empty"
+        assert isPalindrome() == "invalid"
     with mock.patch('__builtin__.raw_input', return_value="  ? . , "):
-        assert isPalindrome() == "empty"
+        assert isPalindrome() == "invalid"
     with mock.patch('__builtin__.raw_input', return_value="racecar"):   
         assert isPalindrome() == "is a palindrome"
     with mock.patch('__builtin__.raw_input', return_value="rAce Car"):
