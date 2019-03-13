@@ -8,6 +8,7 @@ SubsetSum.prototype.setList = function(list) {
 	try	{
 		validate(list);
 		this.list = list;
+		console.log(list);
 	} catch (err) {
 		console.error(err);
 	}
