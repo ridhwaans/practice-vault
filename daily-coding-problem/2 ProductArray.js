@@ -16,7 +16,6 @@ ProductArray.prototype.calculate = function(list){
 };
 
 function getProduct(array, i, newArray){	
-	
 	// Base cases
 	if (array.length < 2) {
 		return array;
@@ -66,5 +65,5 @@ console.log(productArray.calculate([10, 0, 3, 2, 1])); // output [ 0, 60, 0, 0, 
 
 /*
 See also:
-	https://www.geeksforgeeks.org/a-product-array-puzzle/
- */
+https://www.geeksforgeeks.org/a-product-array-puzzle/
+*/

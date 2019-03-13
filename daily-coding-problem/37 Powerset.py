@@ -20,3 +20,10 @@ def get_power_set(input_set):
     get_power_set_helper(power_set,input_set,0)
 
 get_power_set([1,2,3,4,5,6,7,8,9,10])
+
+'''
+Time complexity is O(n*n^2)
+See also:
+https://www.techiedelight.com/generate-power-set-given-set/
+https://www.youtube.com/watch?v=bGC2fNALbNU
+'''

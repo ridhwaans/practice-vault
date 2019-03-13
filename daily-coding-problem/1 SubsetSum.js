@@ -1,7 +1,6 @@
 /* Given a list of numbers, return whether any two sums to k.
    For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 */
-
 var SubsetSum = function () {};
 
 SubsetSum.prototype.setList = function(list) {
@@ -26,12 +25,14 @@ SubsetSum.prototype.exists = function(k) {
 
 function sumExists(list, length, k) {
 	// Base cases
-	if (k == 0) {
-		return true;
-	}
+	// if list is empty and sum is not zero
 	if (length == 0 && k != 0)
 		return false;
 
+	// if sum is zero
+	if (k == 0) {
+		return true;
+	}
 	// If last element is greater than sum, then ignore/skip
 	if (list[length-1] > k)
 		return sumExists(list, length - 1, k);
@@ -86,7 +87,10 @@ subsetSum.setList([3, 34, 4, 12, 5, 2]);
 console.log("Does subset sum exist? " +  subsetSum.exists(0));
 console.log("Does subset sum exist? " +  subsetSum.exists(9));
 
-/* See also:
-	https://www.geeksforgeeks.org/write-a-c-program-that-given-a-set-a-of-n-numbers-and-another-number-x-determines-whether-or-not-there-exist-two-elements-in-s-whose-sum-is-exactly-x/
-	https://www.youtube.com/watch?v=nqlNzOcnCfs&t=186s
+/* 
+Time complexity is O(nlogn) depending on the sort algorithm
+See also:
+https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/
+https://www.youtube.com/watch?v=nqlNzOcnCfs
+https://www.techiedelight.com/subset-sum-problem/
 */

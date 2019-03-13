@@ -13,7 +13,6 @@ The following test should pass:
 node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
 """
-
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -32,21 +31,14 @@ class Node:
         encode(root)
         return ' '.join(self.vals)
 
-    def deserialize(self, data):
-        def decode(vals):
-            val = next(vals)
-            if val == '#':
-                return None
-            node = Node(int(val))
-            node.left = decode(vals)
-            node.right = decode(vals)
-            return node
-        vals = iter(data.split())
-        return decode(vals)
+    def deserialize(self, root):
+        while root.val
+
 
 node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
 
-
-# See also:
-# https://gist.github.com/BiruLyu/8d314ef55539176646476da3c7d3309c
+'''
+See also:
+https://gist.github.com/BiruLyu/8d314ef55539176646476da3c7d3309c
+'''
