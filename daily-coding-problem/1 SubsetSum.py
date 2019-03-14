@@ -46,6 +46,7 @@ See also:
 https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/
 https://www.youtube.com/watch?v=nqlNzOcnCfs
 https://www.techiedelight.com/subset-sum-problem/
+https://wsvincent.com/javascript-two-sum-find-all-pairs-match-target-value/
 '''
 
 
