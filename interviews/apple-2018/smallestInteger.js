@@ -26,3 +26,47 @@ for (let testCase of testCases){
 /*
 Time complexity is O(n)
 */
+
+var Stack = function(object){
+	this.items = [];
+	this.smallest = [];
+}
+
+Stack.prototype.push = function(item){
+	this.items.push(item);
+	if (item <= this.smallest) this.smallest.push(item);
+}
+
+Stack.prototype.pop = () =>{
+	if (this.items.length > 0) {
+		// dont keep old/popped values in the smallest stack
+		if (this.items[this.items.length-1] == this.smallest[this.smallest.length-1]) 
+			{this.smallest.pop();}
+		this.items[this.items.length-1].pop();
+	}
+}
+
+Stack.prototype.peek = function(){
+	return this.items[this.items.length-1];
+}
+
+Stack.prototype.getSmallest = function(){
+	return this.smallest[this.smallest.length-1];
+}
+
+let stack = new Stack();
+stack.push(10);
+stack.push(2);
+stack.push(5);
+stack.push(7);
+stack.push(15);
+stack.push(9);
+stack.push(-34);
+stack.push(66);
+stack.push(-22)
+
+console.log(stack.getSmallest());
+
+/*
+Time complexity is O(1)
+*/
