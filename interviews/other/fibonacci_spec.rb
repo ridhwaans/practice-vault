@@ -1,4 +1,4 @@
-require "../lib/fibonacci.rb"
+require "./fibonacci.rb"
 
 describe "fibonacci sequence" do
 	it "can output the fibonacci sequence for 5 numbers" do

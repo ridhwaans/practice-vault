@@ -1,6 +1,8 @@
+'''
+Given two different strings, one with backspaces (keypresses), find if they are equivalent or not
+'''
 #!/usr/bin/env python
 import __builtin__
-# Given two different strings, one with backspaces (keypresses), find if they are equivalent or not
 
 def main():
     true_testcases = (

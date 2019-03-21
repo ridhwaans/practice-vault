@@ -62,6 +62,8 @@ Count the number of employees for each salary bracket
 from employees group by salary_group
 
 What happens when you write to the database at the same time?
+https://stackoverflow.com/questions/13087197/what-happens-when-multiple-simultaneous-update-requests-received-for-a-sql-table/13087311#13087311
+
 Design a SQL schema for movie titles, genre, actors, year
 Find all movies in the comedy genre that do not contain the actor Adam Sandler in them
 
