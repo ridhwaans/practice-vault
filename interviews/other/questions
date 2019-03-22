@@ -8,7 +8,6 @@ Given a log file with one message per line, find the top three occurring log mes
 
 Given a dynamic arraylist which contains integer, create a solution which finds the minimum value integer in O(1) complexity (not O(n))
 Given list of integers, assume sorted or unsorted, find the largest three elements
-Given a list of integers which contains pairs of duplicates, implement a data structure and algorithm which finds the non-duplicate number
 
 -
 
@@ -16,3 +15,8 @@ Segregate 0s and 1s in an array
 Solution: https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
 
 Markov chain random sentence generator - group_id, contents, children dictionary
+
+
+Web crawling just indexes the information on page using bots (spidering), whereas Web scraping aka web data extraction is an automated software technique of extracting information from web.
+Source: https://www.quora.com/What-are-the-biggest-differences-between-web-crawling-and-web-scraping
+

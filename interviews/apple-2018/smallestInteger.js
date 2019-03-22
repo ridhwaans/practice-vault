@@ -63,7 +63,7 @@ stack.push(15);
 stack.push(9);
 stack.push(-34);
 stack.push(66);
-stack.push(-22)
+stack.push(-22);
 
 console.log(stack.getSmallest());
 
