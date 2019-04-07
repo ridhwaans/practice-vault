@@ -23,18 +23,17 @@ class XORLinkedList {
 	}
 
 	add(element){
-		let prev = this.head;
-		// next of headNode will be currNode
-		let currNode = null ^ this.head.both;
+		let prev = null;
+		let currNode =  this.head;
 		while (currNode.both != 0){
-			const next = prev ^ currNode.both;
-			prev = currNode;
-			currNode = next;
-			}
-
-		currNode.value = element;
-		currNode.both = prev ^ null;
+			const temp = currNode;
+			currNode = prev ^ currNode.both;
+			prev = temp;
 		}
+		currNode = new Node(element);
+		currNode.both = prev ^ null;
+		return currNode;
+	}
 
 	get(index) {
 	    let prev = null;
@@ -54,3 +53,4 @@ XLList.add(5);
 XLList.add(7);
 console.log(XLList.get(1));
 console.log('end');
+

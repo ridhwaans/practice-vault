@@ -13,30 +13,44 @@ The following test should pass:
 node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
 """
+
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-    def serialize(self, root):
-        self.vals = []
-        def encode(node):
-            if node:
-                self.vals.append(str(node.val))
-                encode(node.left)
-                encode(node.right)
-            else:
-                self.vals.append('#')
-        encode(root)
-        return ' '.join(self.vals)
+def serialize(root):
+    s = []
+    def serializer(root, output=None):
+        if (root is None): return s.append(-1)
+        s.append(root.val)
+        serializer(root.left)
+        serializer(root.right)
+    serializer(root,s)
+    print s
+    return ', '.join(str(item) for item in s)
 
-    def deserialize(self, root):
-        while root.val
+def deserialize(data):
+    s = data.split(',')
+    if (len(s) == 0): 
+        return None 
+    i = 0
+    def deserializer(s, i):
+        if (i == len(s) or s[i] == int(-1)):
+            return None
+        node = Node(s[i])
 
+        i += 1
+        node.left = deserializer(s, i)
+        i += 1
+        node.right = deserializer(s, i)
+        return node
+    return deserializer(s, i)
 
 node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
+
 
 '''
 See also:

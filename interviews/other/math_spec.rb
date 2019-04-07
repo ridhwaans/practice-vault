@@ -13,15 +13,13 @@ describe "fib_recursive" do
 	end
 end
 
-describe "prime_iterative" do
-	it "can get the first 10 prime numbers" do
-		expect(prime_iterative 10).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
+describe "prime" do
+	let(:primes) { Primes.new }
+	it "can get the first 10 prime numbers iteratively" do
+		expect(primes.prime_iterative 10).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
 	end
-end
-
-describe "prime_recursive" do
-	it "can get prime numbers up to 50" do
-		expect(prime_recursive(50)).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47])
+	it "can get prime numbers up to 50 recursively" do
+		expect(primes.prime_recursive(50)).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47])
 	end
 end
 
