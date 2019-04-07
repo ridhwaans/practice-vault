@@ -10,34 +10,47 @@ have access to get_pointer and dereference_pointer functions that converts betwe
 nodes and memory addresses.
  */
 
-Node = function(prev, value, next){
-	this.value = value;
-	this.both = prev ^ next;
+class Node {
+	constructor(value){
+		this.value = value;
+		this.both = 0;
+	}
 }
 
+class XORLinkedList {
+	constructor(value){
+		this.head = new Node(value);
+	}
 
-function XORLinkedList = () => {
-	this.head = null;
-	this.size = 0;
+	add(element){
+		let prev = this.head;
+		// next of headNode will be currNode
+		let currNode = null ^ this.head.both;
+		while (currNode.both != 0){
+			const next = prev ^ currNode.both;
+			prev = currNode;
+			currNode = next;
+			}
+
+		currNode.value = element;
+		currNode.both = prev ^ null;
+		}
+
+	get(index) {
+	    let prev = null;
+	    let currNode = this.head;
+	    for (let i = 0; i < index; i += 1) {
+	      const temp = currNode;
+	      currNode = prev ^ this.head.both;
+	      prev = temp;
+	    }
+	    return currNode;
+	  }
 }
 
-XORLinkedList.prototype.add(element){
-
-}
-
-XORLinkedList.prototype.get(index){
-
-}
-
-
-/*
-4 6 7
-
-000
-100
-
-100
-110
-
-010
-*/
+// Driver program
+const XLList = new XORLinkedList(3);
+XLList.add(5);
+XLList.add(7);
+console.log(XLList.get(1));
+console.log('end');
