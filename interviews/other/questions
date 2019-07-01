@@ -1,15 +1,11 @@
-Given two different strings, one with backspaces (keypresses), find if they are equivalent or not
+
 Given a list of numbers, find the number containing the longest sequence of increasing or decreasing numbers
-lunch
 Given a word, find a list of all possible words from a dictionary which contain letters from the input word
-Given a log file with one message per line, find the top three occurring log messages
 
 -
-
-Given a dynamic arraylist which contains integer, create a solution which finds the minimum value integer in O(1) complexity (not O(n))
 Given list of integers, assume sorted or unsorted, find the largest three elements
 
--
+- 
 
 Segregate 0s and 1s in an array
 Solution: https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
@@ -29,3 +25,6 @@ When is ACID Compliance Not Necessary?
 There are cases where a small amount of older or less consistent data can be acceptable. For instance, blog post comments or data saved for an autocomplete feature may not need to be under the scrutiny that other types of data require, so these often do not necessitate ACID compliance.
 Source: https://www.morpheusdata.com/blog/2015-01-29-when-do-you-need-acid-compliance
 
+What is the difference between Webhooks and APIs?
+The main difference between how Webhooks and APIs generally work is that, while APIs place calls without knowing whether they get any data update as a response or not, Webhooks receive calls through HTTP POSTs from external systems only when those have some data updates.
+Source: https://www.google.com/search?q=difference+between+a+hook+and+an+api&oq=difference+between+a+hook+and+an+api&aqs=chrome..69i57.9014j0j1&sourceid=chrome&ie=UTF-8
