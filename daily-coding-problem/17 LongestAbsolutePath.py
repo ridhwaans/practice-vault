@@ -33,7 +33,7 @@ The name of a directory or sub-directory will not contain a period.
 
 '''
 Assumptions:
-1) The longest absolute path can be a single file in the root level without directories
+1) The longest absolute path can be a single file in the root level without subdirectories
 2) The extension of the file does not necessarily have to be .ext
 '''
 import re

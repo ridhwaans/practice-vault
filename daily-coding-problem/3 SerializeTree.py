@@ -14,44 +14,59 @@ node = Node('root', Node('left', Node('left.left')), Node('right'))
 assert deserialize(serialize(node)).left.left.val == 'left.left'
 """
 
+DELIMITER = ','
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-def serialize(root):
-    s = []
-    def serializer(root, output=None):
-        if (root is None): return s.append(-1)
-        s.append(root.val)
-        serializer(root.left)
-        serializer(root.right)
-    serializer(root,s)
-    print s
-    return ', '.join(str(item) for item in s)
+'''
+@params: tree (root node)
+@return: string
+'''
+def serialize(node):
+    answer = ''
+    return preorder_traversal(answer,node)[1:] # remove first character from beginning of string
 
-def deserialize(data):
-    s = data.split(',')
-    if (len(s) == 0): 
-        return None 
-    i = 0
-    def deserializer(s, i):
-        if (i == len(s) or s[i] == int(-1)):
-            return None
-        node = Node(s[i])
+'''
+Root Left Right
+'''
+def preorder_traversal(answer, node):
+    if node is None:
+        answer = answer + DELIMITER + "None"
+    else:
+        answer = answer + DELIMITER + node.val
+        answer = preorder_traversal(answer, node.left)
+        answer = preorder_traversal(answer, node.right)
+    return answer
+'''
+@params: string
+@return: tree (root node)
+'''
+def deserialize(tree_string):
+    tree_list = tree_string.split(DELIMITER)
+    node = rebuild(None, tree_list)
+    return node
 
-        i += 1
-        node.left = deserializer(s, i)
-        i += 1
-        node.right = deserializer(s, i)
-        return node
-    return deserializer(s, i)
+def rebuild(node, tree_list):
+    if len(tree_list) != 0:
+        value = tree_list.pop(0) # gets first element in list
+        if value != 'None':
+            node = Node(value)
+            node.left = rebuild(node, tree_list)
+            node.right = rebuild(node, tree_list)
+        else:
+            node = Node(None)
+    return node
 
 node = Node('root', Node('left', Node('left.left')), Node('right'))
-assert deserialize(serialize(node)).left.left.val == 'left.left'
-
-
+print serialize(node)
+print deserialize(serialize(node)).val
+print deserialize(serialize(node)).left.val
+print deserialize(serialize(node)).left.left.val
+print deserialize(serialize(node)).right.val
+assert deserialize(serialize(node)).left.left.val == 'left.left', "assert should pass"
 '''
 See also:
 https://gist.github.com/BiruLyu/8d314ef55539176646476da3c7d3309c

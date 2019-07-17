@@ -2,7 +2,7 @@
 Given a list of numbers, return whether any two sums to k.
 For example, given [10, 15, 3, 7] and k of 17, return true since 10 + 7 is 17.
 '''
-def sumExists(numbers, total):
+def sum_exists_iterative(numbers, total):
     # range's upper limit is upper minus 1 
     for i in range(0,len(numbers)):
         for j in range(0, len(numbers)):
