@@ -28,3 +28,7 @@ Source: https://www.morpheusdata.com/blog/2015-01-29-when-do-you-need-acid-compl
 What is the difference between Webhooks and APIs?
 The main difference between how Webhooks and APIs generally work is that, while APIs place calls without knowing whether they get any data update as a response or not, Webhooks receive calls through HTTP POSTs from external systems only when those have some data updates.
 Source: https://www.google.com/search?q=difference+between+a+hook+and+an+api&oq=difference+between+a+hook+and+an+api&aqs=chrome..69i57.9014j0j1&sourceid=chrome&ie=UTF-8
+
+What’s the Difference Between Class & Prototypal Inheritance?
+A class is like a blueprint — a description of the object to be created. Classes inherit from classes and create subclass relationships: hierarchical class taxonomies. A prototype is a working object instance. Objects inherit directly from other objects.
+Source: https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9
