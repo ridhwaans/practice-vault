@@ -11,7 +11,7 @@ AlphabetCode.prototype.decode = function(message) {
 	//dp is optimal substructure, account for zero length string such as dp[0]
 	let dp = Array(1+message.length).fill(0);
 	//string is of length zero
-	dp[0] = 0; // no ways to decode empty 
+	dp[0] = 1; // no ways to decode empty 
 	//string is of length one
 	dp[1] = parseInt(message[0]) == 0 ? 0 : 1; // there is no alphabet code for 0, 'a' starts at 1 
 
@@ -20,14 +20,14 @@ AlphabetCode.prototype.decode = function(message) {
 	for (let i = 2; i <= message.length; i++){
 		let singleDigit = message.substring(i-1, i);
 		let doubleDigit = message.substring(i-2, i);
-		console.log(singleDigit + ' ' + doubleDigit);
+		//console.log(singleDigit + ' ' + doubleDigit);
 		//console.log(singleDigit[0]);
-		if (singleDigit[0] !='0' && 1 <= parseInt(singleDigit) <= 9){
+		if (1 <= parseInt(singleDigit)){
 			dp[i] += dp[i-1];
-			console.log(dp[i]);
+			//console.log(dp[i]);
 		}
 		//console.log(doubleDigit[0]);
-		if (doubleDigit[0] !='0' && 10 <= parseInt(doubleDigit) <= 26){
+		if (doubleDigit[0] !='0' && parseInt(doubleDigit) <= 26){
 			//console.log('double valid');
 			dp[i] += dp[i-2];
 		}
