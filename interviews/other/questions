@@ -11,24 +11,3 @@ Segregate 0s and 1s in an array
 Solution: https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
 
 Markov chain random sentence generator - group_id, contents, children dictionary
-
-Web crawling just indexes the information on page using bots (spidering), whereas Web scraping aka web data extraction is an automated software technique of extracting information from web.
-Source: https://www.quora.com/What-are-the-biggest-differences-between-web-crawling-and-web-scraping
-
-A promise is an object which can be returned synchronously from an asynchronous function. It will be in one of 3 possible states: Fulfilled: onFulfilled() will be called (e.g., resolve() was called) Rejected: onRejected() will be called (e.g., reject() was called)
-Source: https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261
-
-Eventual consistency is a consistency model used in distributed computing to achieve high availability that informally guarantees that, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value.
-Source: https://en.wikipedia.org/wiki/Eventual_consistency
-
-When is ACID Compliance Not Necessary?
-There are cases where a small amount of older or less consistent data can be acceptable. For instance, blog post comments or data saved for an autocomplete feature may not need to be under the scrutiny that other types of data require, so these often do not necessitate ACID compliance.
-Source: https://www.morpheusdata.com/blog/2015-01-29-when-do-you-need-acid-compliance
-
-What is the difference between Webhooks and APIs?
-The main difference between how Webhooks and APIs generally work is that, while APIs place calls without knowing whether they get any data update as a response or not, Webhooks receive calls through HTTP POSTs from external systems only when those have some data updates.
-Source: https://www.google.com/search?q=difference+between+a+hook+and+an+api&oq=difference+between+a+hook+and+an+api&aqs=chrome..69i57.9014j0j1&sourceid=chrome&ie=UTF-8
-
-What’s the Difference Between Class & Prototypal Inheritance?
-A class is like a blueprint — a description of the object to be created. Classes inherit from classes and create subclass relationships: hierarchical class taxonomies. A prototype is a working object instance. Objects inherit directly from other objects.
-Source: https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9
