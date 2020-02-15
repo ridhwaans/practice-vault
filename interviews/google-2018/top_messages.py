@@ -23,13 +23,11 @@ def main():
         addr = raw_input("Enter file:")
         if addr is None:
             raise ValueError
-        # trims left and right
-        addr = addr.strip()
+        addr = addr.strip() # trims left and right
         if addr == '':
             raise ValueError
         elif not (os.path.exists(addr)):
-            # python2 is IOError, python3 is FileNotFoundError
-            raise IOError 
+            raise IOError # python2 is IOError, python3 is FileNotFoundError
         with open(addr, 'r') as file:
             for line in nonblank_lines(file):
                 lines.append(line.lower())

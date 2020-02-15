@@ -12,7 +12,7 @@ smallestInteger = (stack,numbers,k) => {
 	return (k == 0) ? stack[stack.length-1] : smallestInteger(stack,numbers,k-1);
 }
 
-var smallestIntegerMainFunction = function(numbers) {
+var smallestIntegerMain = function(numbers) {
 	let stack = []; 
 	let smallest = smallestInteger(stack,numbers,numbers.length - 1);
 	return `the smallest integer is ${smallest}`;
@@ -20,7 +20,7 @@ var smallestIntegerMainFunction = function(numbers) {
 
 var testCases = [[10,2,5,7,15,9,-34,66,-22], [99,1,2,3,4]];
 for (let testCase of testCases){
-	console.log(smallestIntegerMainFunction(testCase));
+	console.log(smallestIntegerMain(testCase));
 }
 
 /*

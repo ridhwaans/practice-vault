@@ -1,13 +1,3 @@
-
-Given a list of numbers, find the number containing the longest sequence of increasing or decreasing numbers
-Given a word, find a list of all possible words from a dictionary which contain letters from the input word
-
--
-Given list of integers, assume sorted or unsorted, find the largest three elements
-
-- 
-
 Segregate 0s and 1s in an array
 Solution: https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
-
 Markov chain random sentence generator - group_id, contents, children dictionary
