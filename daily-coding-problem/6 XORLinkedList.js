@@ -51,6 +51,8 @@ class XORLinkedList {
 const XLList = new XORLinkedList(3);
 XLList.add(5);
 XLList.add(7);
+console.log(XLList.get(0));
 console.log(XLList.get(1));
+console.log(XLList.get(2));
 console.log('end');
 

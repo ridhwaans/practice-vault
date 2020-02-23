@@ -1,4 +1,4 @@
-In computer programming, a mutex (mutual exclusion object) is a program object that is created so that multiple program thread can take turns sharing the same resource, such as access to a file. Typically, when a program is started, it creates a mutex for a given resource at the beginning by requesting it from the system and the system returns a unique name or ID for it. After that, any thread needing the resource must use the mutex to lock the resource from other threads while it is using the resource. If the mutex is already locked, a thread needing the resource is typically queued by the system and then given control when the mutex becomes unlocked (when once more, the mutex is locked during the new thread's use of the resource).
+A mutex (mutual exclusion object) is a program object that is created so that multiple program thread can take turns sharing the same resource, such as access to a file. Typically, when a program is started, it creates a mutex for a given resource at the beginning by requesting it from the system and the system returns a unique name or ID for it. After that, any thread needing the resource must use the mutex to lock the resource from other threads while it is using the resource. If the mutex is already locked, a thread needing the resource is typically queued by the system and then given control when the mutex becomes unlocked (when once more, the mutex is locked during the new thread's use of the resource).
 
 Source: https://searchnetworking.techtarget.com/definition/mutex
 
@@ -11,20 +11,12 @@ Normalization entails organizing the columns (attributes) and tables (relations)
 
 Source: https://en.wikipedia.org/wiki/Database_normalization
 
-How do you find the k-th smallest element in a binary search tree?
-https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/
-
-Content-Type header is how you select the body format to send or receive POST requests
-
-Build tic-tac-toe. Fix webscrapper
-
 In C, the library function malloc is used to allocate a block of memory on the heap. The program accesses this block of memory via a pointer that malloc returns. When the memory is no longer needed, the pointer is passed to free which deallocates the memory so that it can be used for other purposes.
-
-Source: https://en.wikipedia.org/wiki/C_dynamic_memory_allocation
-
 Dynamically allocated memory created with either calloc() or malloc() doesn't get freed on their own. You must explicitly use free() to release the space.
 
-Source: https://www.programiz.com/c-programming/c-dynamic-memory-allocation#free
+Sources: 
+https://en.wikipedia.org/wiki/C_dynamic_memory_allocation
+https://www.programiz.com/c-programming/c-dynamic-memory-allocation#free
 
 HashMap is a data structure which allows us to store object and retrieve it in constant time O(1) provided we know the key. In hashing, hash functions are used to link key and value in HashMap. ... HashMap internally stores mapping in the form of Map.Entry object which contains both key and value object.
 
@@ -34,3 +26,7 @@ If we try to retrieve an object from this linked list, we need an extra check to
 
 Source: https://javarevisited.blogspot.com/2011/02/how-hashmap-works-in-java.html
 
+Misc:
+Use in-order traversal (Left Root Right) to find the k-th smallest element in a binary search tree
+Content-Type header is how you select the body format to send or receive POST requests
+Build tic-tac-toe
