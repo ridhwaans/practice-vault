@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 '''
 def jobOffers(scores, lowerLimits, upperLimits):
 
@@ -13,7 +12,8 @@ scores = [4,8,7]
 lowerLimits = [2,4]
 upperLimits = [8,4]
 Output: [3,1]
-
+'''
+'''
 Assumptions:
 scores, lowerLimits, upperLimits are lists of integers
 '''

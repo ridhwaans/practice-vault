@@ -1,5 +1,7 @@
 '''
 Given a log file with one message per line, find the top three occurring log messages
+'''
+'''
 Assumptions:
 - no blank or empty lines
 - no timestamp or line prefix

@@ -44,6 +44,6 @@ for test_case in test_cases:
 
 
 '''
-other questions
+What is the difference between setState and forceUpdate?
 https://stackoverflow.com/questions/43841930/in-react-what-is-the-difference-between-setstate-and-forceupdate
 '''

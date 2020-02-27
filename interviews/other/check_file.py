@@ -4,8 +4,10 @@ import mock
 import pytest
 import __builtin__
 
-'''Check file
 '''
+Check file
+'''
+
 def main(prompt):
   filename = raw_input(prompt) #ask for filename using the given prompt
   if validate(filename):
@@ -29,11 +31,11 @@ def validate(input):
 if __name__ == "__main__":
     main("Enter filename in current directory:")
 
-# python -m pytest check-file.py
+# python -m pytest check_file.py
 # valid: ['print-file.py']
 # invalid: [None, '', 'nonexistent']
 def test_01():
-    with mock.patch.object(__builtin__, 'raw_input', side_effect=['check-file.py']):
+    with mock.patch.object(__builtin__, 'raw_input', side_effect=['check_file.py']):
         assert main("Enter filename") == "File exists"
 
 def test_02():

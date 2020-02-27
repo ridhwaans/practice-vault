@@ -17,7 +17,7 @@ def isPalindrome():
     else:
         return "not a palindrome"
 
-# python -m pytest wayfair-2019.py
+# python -m pytest interview.py
 def test_isPalindrome():
     with mock.patch('__builtin__.raw_input', return_value=""):
         assert isPalindrome() == "invalid"
@@ -36,15 +36,11 @@ def test_isPalindrome():
     with mock.patch('__builtin__.raw_input', return_value="@ra$cecarWrong"):
         assert isPalindrome() == "not a palindrome"
 
-'''
-https://stackoverflow.com/a/3987107/3577482
-'''
 if __name__ == "__main__":
     isPalindrome()
     #test_isPalindrome()
 
 '''
-SQL exercises:
 List departments which do not have employees in them
 
 > SELECT d.name FROM departments AS d LEFT OUTER JOIN employees AS e on d.id = e.department_id WHERE e.department_id IS NULL
@@ -66,6 +62,7 @@ https://stackoverflow.com/questions/13087197/what-happens-when-multiple-simultan
 https://stackoverflow.com/questions/32087233/how-does-mysql-handle-concurrent-inserts
 
 Design a SQL schema for movie titles, genre, actors, year
+
 Find all movies in the comedy genre that do not contain the actor Adam Sandler in them
 
 > SELECT m.titles FROM movies AS m 
@@ -74,6 +71,5 @@ INNER JOIN genres AS g ON m.genre_id = g.id
 WHERE m.genre_id = 1 AND 
 m.actor_id NOT IN (SELECT a.id FROM actors AS a WHERE a.name = 'Adam Sandler' LEFT OUTER JOIN genres AS g ON a.genre_id = genre.id)
 
-Systems design: 
 Design a tweet url shortener service with high load
 '''

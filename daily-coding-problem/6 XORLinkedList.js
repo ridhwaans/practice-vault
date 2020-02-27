@@ -8,7 +8,7 @@ returns the node at index.
 If using a language that has no pointers (such as Python), you can assume you 
 have access to get_pointer and dereference_pointer functions that converts between 
 nodes and memory addresses.
- */
+*/
 
 class Node {
 	constructor(value){

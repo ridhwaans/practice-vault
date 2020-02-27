@@ -32,7 +32,7 @@ parentChildPairs = [
   [8, 10]
 ];
 
-function nodes(arr) {
+function nodesWithZeroAndOneParents(arr) {
 
   const [parents, childs] = arr.reduce( 
     ([parents, childs], [first, second]) => [ 
@@ -48,4 +48,4 @@ function nodes(arr) {
 
 }
 
-console.log(nodes(parentChildPairs));
+console.log(nodesWithZeroAndOneParents(parentChildPairs));

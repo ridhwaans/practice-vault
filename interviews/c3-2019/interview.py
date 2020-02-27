@@ -1,4 +1,6 @@
-# Find all permutations of a list of letters
+'''
+Find all permutations of a list of letters
+'''
 from collections import Counter
 
 letters = ['A','B','C']
@@ -25,6 +27,6 @@ https://docs.python.org/3/library/collections.html#collections.Counter
 '''
 
 '''
-Implement a linkedlist data structure for a supply chain system https://leetcode.com/problems/design-linked-list/
+Implement a linkedlist data structure for a supply chain system
 Design a data model for a library reservation system to checkout, renew and return books
 '''

@@ -1,3 +1,13 @@
 Segregate 0s and 1s in an array
 Solution: https://www.geeksforgeeks.org/segregate-0s-and-1s-in-an-array-by-traversing-array-once/
 Markov chain random sentence generator - group_id, contents, children dictionary
+
+qualtrics
+Given an array of Functions, Event name (started/stoped) and timestamp (integer), find the inclusive execution time and exclusive execution time. 
+
+Given a stream of characters, find the oldest unique character
+example: a b c a
+a
+a
+a
+b

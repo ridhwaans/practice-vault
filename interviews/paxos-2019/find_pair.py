@@ -1,5 +1,5 @@
 '''
-find-pair.py: Finds the pair of items with the closest matching price to the balance in the gift card
+find_pair.py: Finds the pair of items with the closest matching price to the balance in the gift card
 
 Assumptions: 
 1) There are no duplicate items
@@ -25,7 +25,7 @@ import sys
 import argparse  
 import operator
 
-def findPair(prices, size, target_price): 
+def find_pair(prices, size, target_price): 
     # Initialize left and right variables
     MAX_VAL = sys.maxint
     pair_l, pair_r = 0, 0
@@ -46,7 +46,7 @@ def findPair(prices, size, target_price):
     return (pair_l, pair_r)
 
 def main():
-    parser = argparse.ArgumentParser(description="find-pair:")
+    parser = argparse.ArgumentParser(description="find_pair:")
     parser.add_argument("prices", type=validate_prices, help="A filename with a list of sorted prices")
     parser.add_argument("target_price", type=validate_target_price, help="The balance of your gift card (truncates decimals)")
     args = parser.parse_args()
@@ -62,9 +62,7 @@ def main():
     alternative option is use OrderedDict or tuples
     using a list of (name, price) tuples sorted by price like file
     '''
-    #sorted_items = sorted(items.items(), key=operator.itemgetter(1))
-    #print(map(operator.itemgetter(1), items), len(items))
-    (item1, item2) = findPair(map(operator.itemgetter(1), items), len(items), args.target_price)
+    (item1, item2) = find_pair(map(operator.itemgetter(1), items), len(items), args.target_price)
     print('The closest pair is {} and {}'.format(
         (items[item1][0] + ' $' + str(items[item1][1])), 
         (items[item2][0] + ' $' + str(items[item2][1]))

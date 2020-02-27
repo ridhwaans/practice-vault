@@ -1,8 +1,10 @@
 '''
 Given a word, find a list of all possible words from a dictionary which contain letters from the input word
+'''
+'''
 Assumptions:
-Only contains letters A to Z
-Letters are case insensitive
+- Only contains letters A to Z
+- Letters are case insensitive
 '''
 def getWords(initial_word):
 	letters = initial.split()

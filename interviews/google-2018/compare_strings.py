@@ -1,7 +1,6 @@
 '''
 Given two different strings, one with backspaces (keypresses), find if they are equivalent or not
 '''
-#!/usr/bin/env python
 import __builtin__
 
 def main():

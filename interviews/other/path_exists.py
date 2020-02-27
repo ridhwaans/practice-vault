@@ -1,7 +1,6 @@
 '''
 Given a road network, could be bidirectional, determine if a path exists between an origin and destination node
 '''
-
 from collections import defaultdict
 class Graph():
     def __init__(self):
