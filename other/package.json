@@ -1,8 +1,4 @@
 {
-  "name": "practice-vault",
-  "version": "1.0.0",
-  "author": "ridhwaans",
-  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "crypto": "^1.0.1",

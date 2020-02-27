@@ -59,8 +59,8 @@ def main():
     '''
     NOTE: before python 3.6, dictionaries in python were unordered
     they're still not ordered in python 3.6+, but they remember what order the key-value pairs were inserted
-    alternative option is use OrderedDict or tuples
-    using a list of (name, price) tuples sorted by price like file
+    https://stackoverflow.com/questions/39980323/are-dictionaries-ordered-in-python-3-6
+    alternative option is an OrderedDict or a list of tuples (name, price) sorted by price
     '''
     (item1, item2) = find_pair(map(operator.itemgetter(1), items), len(items), args.target_price)
     print('The closest pair is {} and {}'.format(
