@@ -21,12 +21,11 @@ def permuteUnique(letters):
 
 print(permuteUnique(letters))
 '''
-Time complexity is O(n*n!) There are n! permutations and O(n) to print a permutation
+Time complexity is O(n*n!). There are n! permutations and O(n) to print a permutation
 Space complexity is O(n)
 
 See also:
 https://docs.python.org/3/library/collections.html#collections.Counter
 
-Implement a linkedlist data structure for a supply chain system
-Design a data model for a library reservation system to checkout, renew and return books
+Design a model for a library reservation system to checkout, renew and return books
 '''
