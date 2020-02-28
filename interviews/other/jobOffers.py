@@ -37,3 +37,8 @@ def test_01():
     assert jobOffers([1,3,5,6,8],[2],[6]) == [3]
 def test_02():
     assert jobOffers([4,8,7],[2,4],[8,4]) == [3,1]
+
+"""
+Time complexity is O(n) where n is proportional to the size of the input
+Space complexity is O(n)
+"""

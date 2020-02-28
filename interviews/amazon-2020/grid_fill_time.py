@@ -57,4 +57,5 @@ grid = [[0, 1, 1, 0, 1],
         [0, 1, 0, 1, 0],
         [0, 0, 0, 0, 1],
         [0, 1, 0, 0, 0]]
+
 print('Output: {}'.format(Solution().minHour(len(grid),len(grid[0]),grid))) # 4 rows, 4 columns

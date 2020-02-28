@@ -18,4 +18,5 @@ print find_unique([2,3,4,5,6,6,7,7,2,2,2,5,5,3,4])
 
 '''
 Time complexity is O(n)
+Space complexity is O(n)
 '''

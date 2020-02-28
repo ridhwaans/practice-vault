@@ -25,6 +25,7 @@ for (let testCase of testCases){
 
 /*
 Time complexity is O(n)
+Space complexity is O(n) where n is the number of items
 */
 
 var Stack = function(object){
@@ -69,4 +70,5 @@ console.log(stack.getSmallest());
 
 /*
 Time complexity is O(1)
+Space complexity is O(n)
 */

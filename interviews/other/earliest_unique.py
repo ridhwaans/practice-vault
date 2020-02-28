@@ -25,3 +25,8 @@ def earliest_unique(characters = []):
 test_cases = [['a','b','c','a'],['t','e','n','e','t']]
 for case in test_cases:
     print 'Answer is {}'.format(earliest_unique(case))
+
+"""
+Time complexity is O(n)
+Space complexity is O(n)
+"""

@@ -42,8 +42,7 @@ test_cases = ['1234',' ','?()','a7r','yy%','aaabbbbcca','AZTEEER', 'QWERTY']
 for test_case in test_cases:
     print 'Given {0}. {1}'.format(test_case, compress_string(test_case))
 
-
 '''
-What is the difference between setState and forceUpdate?
-https://stackoverflow.com/questions/43841930/in-react-what-is-the-difference-between-setstate-and-forceupdate
+Time complexity is O(n) where n is proportional to the size of the input (characters)
+Space complexity is O(n) because each individual character must be stored somewhere
 '''

@@ -41,6 +41,9 @@ if __name__ == "__main__":
     #test_isPalindrome()
 
 '''
+Time complexity is O(n). Worst case O(n^2) because of the reversed() and join()
+Space complexity is O(n)
+
 List departments which do not have employees in them
 
 > SELECT d.name FROM departments AS d LEFT OUTER JOIN employees AS e on d.id = e.department_id WHERE e.department_id IS NULL

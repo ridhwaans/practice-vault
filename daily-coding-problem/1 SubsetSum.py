@@ -13,7 +13,6 @@ def sum_exists_iterative(numbers, total):
                 return True
     return False
 
-
 '''
 Time complexity is O(n^2)
 '''
@@ -37,17 +36,15 @@ def sum_exists_recursive(numbers, total):
     k = len(numbers)-1
     return sum_exists_helper(numbers,total,k)
 
-
 print sum_exists_recursive([15,10,3,7], 17)
 print sum_exists_recursive([15,10,3,7], 12)
 '''
-Time complexity is O(nlogn) depending on the sort algorithm
+Time complexity is O(n). Traverse n elements only once. Each look up in the table costs only O(1) time
+Space complexity is O(n). The extra space required depends on the number of items stored in the hash table, which stores at most n elements
+
 See also:
 https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/
 https://www.youtube.com/watch?v=nqlNzOcnCfs
 https://www.techiedelight.com/subset-sum-problem/
 https://wsvincent.com/javascript-two-sum-find-all-pairs-match-target-value/
 '''
-
-
-

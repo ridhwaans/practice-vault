@@ -49,3 +49,8 @@ function nodesWithZeroAndOneParents(arr) {
 }
 
 console.log(nodesWithZeroAndOneParents(parentChildPairs));
+
+/*
+Time complexity is O(n). The reduce runs in O(n) time, and you run a reduce for every entry in arr, making it O(n^2) (worst case)
+Space complexity is O(n)
+*/
