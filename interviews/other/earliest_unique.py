@@ -27,6 +27,6 @@ for case in test_cases:
     print 'Answer is {}'.format(earliest_unique(case))
 
 """
-Time complexity is O(n)
-Space complexity is O(n)
+Time complexity is O(n) since we go through the string of length N two times.
+Space complexity is O(n) since we have to keep a hash map with N elements.
 """

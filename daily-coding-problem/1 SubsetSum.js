@@ -90,8 +90,8 @@ console.log("Does subset sum exist? " +  subsetSum.exists(0));
 console.log("Does subset sum exist? " +  subsetSum.exists(9));
 
 /* 
-Time complexity is O(n). Traverse n elements only once. Each look up in the table costs only O(1) time
-Space complexity is O(n). The extra space required depends on the number of items stored in the hash table, which stores at most n elements
+Time complexity is O(2^n). Solves a problem of size N by recursively solving two smaller problems of size N-1
+Space complexity is O(1)
 
 See also:
 https://www.geeksforgeeks.org/given-an-array-a-and-a-number-x-check-for-pair-in-a-with-sum-as-x/
