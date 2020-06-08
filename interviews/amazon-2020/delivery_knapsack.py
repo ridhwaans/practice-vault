@@ -1,5 +1,5 @@
 '''
-Design Amazon's drone delivery system where you want to carry as many packages as possible under a weight limit. 
+Design a delivery algorithm where you want to carry as many packages as possible under a weight limit. 
 '''
 '''
 Assumptions:
@@ -9,31 +9,29 @@ Assumptions:
 - Want to maximize quantity of packages to fit, not necessarily the heaviest items
 - Cannot have fractions, only include or exclude items
 '''
+import numpy as np
 class Package():
-    def __init__(self, weight, price):
-        self.weight = weight
-        self.price = price
+  def __init__(self, weight, price):
+    self.weight = weight
+    self.price = price
 
 def maxPackages(prices, weights, target_weight):
-    if len(prices) != len(weights):
-        return 0
-    maxPackagesHelper(prices, weights, target_weight, 0, {})
-   
-def maxPackagesHelper(prices, weights, target_weight, current, mem):
-    #print weights[current], prices[current], target_weight, current
-    if current == len(weights):
-        return 0
-    if weights[current] > target_weight:
-        result = maxPackagesHelper(prices, weights, target_weight, current+1, mem)
-    result = min(
-        (maxPackagesHelper(prices, weights, target_weight - weights[current], current+1, mem) + prices[current]),
-        maxPackagesHelper(prices, weights, target_weight, current+1, mem))
+  w_sum = 0
+  packages = []
+  for i,w in sorted(enumerate(weights), key=lambda x: x[1]):
+    if w_sum + w > target_weight:
+      break
+    w_sum += w
+    packages.append((i,w))
+  return packages
 
-    mem[current] = result
-    return result
+packages = [Package(i,i) for i in np.random.choice(10, 10, replace=True)]
+print([p.weight for p in packages])
+print("use packages:")
+for i,w in maxPackages([p.price for p in packages], [p.weight for p in packages], 10):
+  print(f"  package {i} with weight {w}")
 
-packages = []
-for i in range(1,10):
-    packages.append(Package(i, i))
-    
-print "answer is {}".format(maxPackages([p.price for p in packages], [p.weight for p in packages], 7))
+"""
+Time complexity is O(n)
+Space complexity is O(n)
+"""
