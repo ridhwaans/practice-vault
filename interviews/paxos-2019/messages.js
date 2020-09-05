@@ -5,17 +5,17 @@ Scaling Question:
 What would the bottleneck(s) be in your implementation as you acquire more users? How you might scale your
 microservice?
 
-The bottlenecks with high traffic will be slow response times and risk of downtime.
-I would need to use a load balancer such as AWS beanstalk to distribute the load over multiple locations. 
-At a large scale, use a relational database sharded into partitions and sync it with the microservice. 
-Also probably utilize AWS/New Relic for monitoring and a geoip database for fast response times to users by location   
+The bottlenecks will be high traffic, slow response times and risk of downtime
+I would use a load balancer such as AWS beanstalk to distribute the load over multiple locations. 
+At a large scale, shard a relational database or use DynamoDB and sync it with the microservice. 
+Also utilize AWS/New Relic for monitoring and a geoip database for fast response times   
 
 Deployment Question: 
 How would you improve your deployment process if you needed to maintain this application long term?
 
-In the long term, I would need to use a Docker container orchestration system such as Kubernetes for automating deploys, scaling. 
+In the long term, I would use a container orchestration system such as Kubernetes for automating deploys, scaling. 
 It would help to manage the application across multiple nodes with minimal/zero downtime.
-I would also apply continuous integration and continuous deployment practices such as test coverage and automation. 
+I would also setup continuous integration and continuous deployment automation with full test coverage. 
 */
 
 var crypto = require('crypto');

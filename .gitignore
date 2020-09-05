@@ -6,6 +6,11 @@ yarn.lock
 
 # dependencies
 node_modules/
+.gradle
+\.classpath
+\.project
+\.settings/
+bin/
 
 # misc
 .DS_Store

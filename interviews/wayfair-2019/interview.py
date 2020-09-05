@@ -41,9 +41,10 @@ if __name__ == "__main__":
     #test_isPalindrome()
 
 '''
-Time complexity is O(n). Worst case O(n^2) because of the reversed() and join()
+Time complexity is O(n). Worst case O(n^2) because of reversed() and join()
 Space complexity is O(n)
-
+'''
+'''
 List departments which do not have employees in them
 
 > SELECT d.name FROM departments AS d LEFT OUTER JOIN employees AS e on d.id = e.department_id WHERE e.department_id IS NULL
@@ -64,7 +65,7 @@ What happens when you write to the database at the same time?
 https://stackoverflow.com/questions/13087197/what-happens-when-multiple-simultaneous-update-requests-received-for-a-sql-table/13087311#13087311
 https://stackoverflow.com/questions/32087233/how-does-mysql-handle-concurrent-inserts
 
-Design a SQL schema for movie titles, genre, actors, year
+Design a SQL schema for movies with movie titles, genre, actors, year
 
 Find all movies in the comedy genre that do not contain the actor Adam Sandler in them
 

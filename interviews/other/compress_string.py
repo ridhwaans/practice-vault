@@ -45,4 +45,14 @@ for test_case in test_cases:
 '''
 Time complexity is O(n) where n is proportional to the size of the input (characters)
 Space complexity is O(n) because each individual character must be stored somewhere
+Output:
+> python compressed_string.py
+Given 1234. String is not valid
+Given  . String is not valid
+Given ?(). String is not valid
+Given a7r. String is not valid
+Given yy%. String is not valid
+Given aaabbbbcca. The compressed string is a3b4c2a1.
+Given AZTEEER. Compressed string is not smaller than the original string
+Given QWERTY. Compressed string is not smaller than the original string
 '''

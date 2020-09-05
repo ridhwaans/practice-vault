@@ -1,7 +1,6 @@
 '''
 Design a delivery algorithm where you want to carry as many packages as possible under a weight limit. 
-'''
-'''
+
 Assumptions:
 - Weight is a positive integer
 - Each item has a price and a weight

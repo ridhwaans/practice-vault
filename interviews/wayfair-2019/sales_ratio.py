@@ -41,9 +41,9 @@ def main():
     print('The top five product types with the best peak / non-peak sales ratio are: \n' + str(topfive))
     
     '''
-    One issue I came across in the take home was the product_data.json file provided (attached) had incomplete data and was missing information (product name, type, class, packaging) on some product ids. The missing product ids were:
+    One issue was the product_data.json file provided had incomplete data and was missing information (product name, type, class, packaging) on some product ids. The missing product ids were:
     'CSN1059', 'TRPT3378', 'GRKS8013', 'VVRE4106', 'TRPT4546' 'IRI1672', 'GRKS8012', 'WDLN2941', 'BCMH2001', 'CHMB1696'
-    This issue was a potential blocker in my submission so my options were to either alter my solution to omit some information on the top 5 peak/non-peak sales ratios or use a new product_data.json which contains the missing data.
+    This issue was a potential blocker in my submission, so my options were to either alter my solution to omit some information on the top 5 peak/non-peak sales ratios or use a new product_data.json which contains the missing data.
     '''
     for key in product_data:
         if str(key["Product_Id"]) in topfive:

@@ -10,15 +10,15 @@ Assumptions:
 6) There are no signs or decimals in the price list
 7) Balance on the gift card should not be zero
 
-Question (required): What is the big O notation for your program?
+Question: What is the big-O notation for your program?
 
 ANSWER: O(n)
 
-Question B.: How would you optimize your solution if you could not load the file in memory?
+Question: How would you optimize your solution if you could not load the file in memory?
 
 ANSWER: If the file is too big to load in memory for the operation, 
 I would read the file in parts as a buffer, such as the first 1000 lines, 
-load a part of the file into RAM and work with it. Once finished, we can save that part to the disk and read the next part
+load a part of the file into RAM and process it. Once finished, save that part to disk and read the next part
 '''
 import os
 import sys  
