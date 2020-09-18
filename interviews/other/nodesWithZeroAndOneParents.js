@@ -4,7 +4,7 @@ The data is formatted as a list of (parent, child) pairs.
 
 Write a function that takes in the input list and returns a list of individuals containing zero known parents and a list of individuals with exactly one known parent
 
- parentChildPairs = [
+parentChildPairs = [
   [1, 3],
   [2, 3],
   [3, 6],
@@ -20,7 +20,6 @@ nodesWithZeroAndOneParents = [
   [5, 7, 8, 10]
 ]
 */
-
 parentChildPairs = [
   [1, 3],
   [2, 3],

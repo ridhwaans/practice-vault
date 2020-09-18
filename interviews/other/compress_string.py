@@ -31,7 +31,6 @@ def compress_string(original_string):
     except Exception as e:
         return e
     
-
 def validate(string):
     # isalpha() checks for trimmed whitespace, special characters, numbers
     if not string.isalpha():

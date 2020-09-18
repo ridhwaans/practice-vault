@@ -1,11 +1,10 @@
-""""
+'''
 Given a stream of characters, find the earliest unique character
-example: a b c a
-a
-a
-a
-b
-"""
+example: 
+d e f d -> e
+a a a b -> b
+'''
+#!/usr/bin/python2
 import sys
 
 def earliest_unique(characters = []):
@@ -26,7 +25,7 @@ test_cases = [['a','b','c','a'],['t','e','n','e','t']]
 for case in test_cases:
     print 'Answer is {}'.format(earliest_unique(case))
 
-"""
+'''
 Time complexity is O(n) since we go through the string of length N two times.
 Space complexity is O(n) since we have to keep a hash map with N elements.
-"""
+'''

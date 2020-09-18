@@ -225,7 +225,6 @@ callback = function(data){
 
 getMovieTitles("spiderman");
 
-
 // function fetchData(substr) {
 //     let totalPages = 1;
 //     let movieTitles = [];
