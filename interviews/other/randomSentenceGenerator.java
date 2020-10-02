@@ -191,4 +191,6 @@ class Solution {
 /*
 Time complexity is O(N + C)
 Space complexity is O(N + C) -> Space(N) on call stack
+See also:
+https://leetcode.com/discuss/interview-question/799347/Sentence-Generator-or-Facebook-or-Online-OA-or-2019
 */

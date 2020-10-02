@@ -178,3 +178,7 @@ print(generate_template(46,x))
 print(generate_template(124,x))
 print(generate_template(36,x))
 print(generate_template(154,x))
+'''
+See also:
+https://leetcode.com/discuss/interview-question/799347/Sentence-Generator-or-Facebook-or-Online-OA-or-2019
+'''
