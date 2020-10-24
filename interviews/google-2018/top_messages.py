@@ -7,6 +7,7 @@ Assumptions:
 - messages are case insensitive
 - file can be empty or non existent
 '''
+#!/usr/bin/env python2.7
 import os
 import mock
 import __builtin__

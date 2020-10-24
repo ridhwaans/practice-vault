@@ -1,21 +1,20 @@
 /* 
-messages.js: Small service that returns SHA256 hash digest of string and vice versa
+messages.js: Small service that returns SHA256 hash digest of string and vice versa  
 
-Scaling Question: 
+Scaling Question:  
 What would the bottleneck(s) be in your implementation as you acquire more users? How you might scale your
-microservice?
+microservice?  
 
-The bottlenecks will be high traffic, slow response times and risk of downtime
-I would use a load balancer such as AWS beanstalk to distribute the load over multiple locations. 
-At a large scale, shard a relational database or use DynamoDB and sync it with the microservice. 
-Also utilize AWS/New Relic for monitoring and a geoip database for fast response times   
+The bottlenecks will be slow response times and risk of downtime  
+I would spec out the machine(s) (cpu, ram) and later setup a load balancer to spread the traffic  
+At a large scale, introduce a database replication system to offload storage closer to audiences  
+Also apply caching with sharding the data and memoizing results  
 
 Deployment Question: 
-How would you improve your deployment process if you needed to maintain this application long term?
+How would you improve your deployment process if you needed to maintain this application long term? 
 
-In the long term, I would use a container orchestration system such as Kubernetes for automating deploys, scaling. 
-It would help to manage the application across multiple nodes with minimal/zero downtime.
-I would also setup continuous integration and continuous deployment automation with full test coverage. 
+In the long term, I would introduce a CI/CD system with test coverage.   
+Deploy automation and version control will help rollbacks and fast updates  
 */
 
 var crypto = require('crypto');

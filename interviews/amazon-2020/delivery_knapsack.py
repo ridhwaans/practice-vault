@@ -30,11 +30,11 @@ print("use packages:")
 for i,w in maxPackages([p.price for p in packages], [p.weight for p in packages], 10):
   print(f"  package {i} with weight {w}")
 
-"""
+'''
 Time complexity is O(n)
 Space complexity is O(n)
 See also:
 https://youtu.be/8LusJS5-AGo?t=928
 https://www.youtube.com/watch?v=YRBON9sIZ2Y
 https://leetcode.com/discuss/interview-question/535706/maximum-quantity-of-items-dp-question/471080
-"""
+'''

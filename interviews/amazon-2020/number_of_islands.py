@@ -59,3 +59,8 @@ islands2 = [["1","1","0","0","0"],
 
 MyClass().run(islands)
 MyClass().run(islands2)
+
+'''
+Time complexity is O(MxN) rows and columns respectively
+Space complexity is worst case O(MxN) deep if the grid map is filled with lands
+'''

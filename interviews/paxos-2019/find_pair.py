@@ -16,9 +16,12 @@ ANSWER: O(n)
 
 Question: How would you optimize your solution if you could not load the file in memory?
 
-ANSWER: If the file is too big to load in memory for the operation, 
-I would read the file in parts as a buffer, such as the first 1000 lines, 
-load a part of the file into RAM and process it. Once finished, save that part to disk and read the next part
+ANSWER: If the file is too large for the memory operation,  
+1) scale up the local machine (ram, cpu)  
+2) compress the representation of data in memory  
+3) chunking, loading all data one chunk at a time  
+4) index and summarize the data when you need different subsets at different times  
+Source: https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 '''
 import os
 import sys  
@@ -89,3 +92,7 @@ def validate_prices(value):
 
 if __name__ == "__main__":
     main()
+
+'''
+Time complexity is O(n)
+'''

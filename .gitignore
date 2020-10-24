@@ -6,7 +6,7 @@ yarn.lock
 
 # dependencies
 node_modules/
-.gradle
+.gradle/
 \.classpath
 \.project
 \.settings/
