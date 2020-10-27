@@ -1,4 +1,8 @@
-'''
+"""
+Daily Coding Problem: Problem #17
+
+This problem was asked by Google.
+
 Suppose we represent our file system by a string in the following manner:
 
 The string "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext" represents:
@@ -29,7 +33,7 @@ Note:
 The name of a file contains at least a period and an extension.
 
 The name of a directory or sub-directory will not contain a period.
-'''
+"""
 
 '''
 Assumptions:
