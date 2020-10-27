@@ -1,4 +1,4 @@
-var missingPositive = require('./4 MissingPositive.js')
+var missingPositive = require('./problem-004.js')
 missingPositive = new MissingPositive();
 
 describe('MissingPositive', function() {
