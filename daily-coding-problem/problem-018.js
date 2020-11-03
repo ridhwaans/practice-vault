@@ -30,7 +30,7 @@ console.log(fun1([10, 5, 2, 7, 8, 7], 3));
 
 /*
 Time complexity is O(n)  
-Space complexity is O(n)  
+Space complexity is O(k)  
 
 See also:
 https://www.youtube.com/watch?v=MK-NZ4hN7rs

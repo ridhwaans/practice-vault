@@ -7,14 +7,14 @@ microservice?
 
 The bottlenecks will be slow response times and risk of downtime  
 I would spec out the machine(s) (cpu, ram) and later setup a load balancer to spread the traffic  
-At a large scale, introduce a database replication system to offload storage closer to audiences  
-Also apply caching with sharding the data and memoizing results  
+At a large scale, apply caching with sharding the data and memoizing results  
+Also introduce a database replication system to offload storage closer to audiences  
 
 Deployment Question: 
-How would you improve your deployment process if you needed to maintain this application long term? 
+How would you improve your deployment process if you needed to maintain this application long term?  
 
-In the long term, I would introduce a CI/CD system with test coverage.   
-Deploy automation and version control will help rollbacks and fast updates  
+I would introduce a CI/CD system with automated test coverage  
+Deploy automation and version control will help with fast updates and rollbacks  
 */
 
 var crypto = require('crypto');

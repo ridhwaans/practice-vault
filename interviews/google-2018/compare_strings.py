@@ -64,3 +64,8 @@ def compare(s1, s2):
 
 if __name__ == "__main__":
     main()
+
+'''
+Time complexity is O(n)
+Space complexity is O(1)
+'''

@@ -1,3 +1,3 @@
 '''
-Given a list of numbers, find the number containing the longest sequence of increasing numbers
+Given an unsorted array of integers, find the longest increasing subsequence
 '''

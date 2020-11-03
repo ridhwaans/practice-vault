@@ -18,6 +18,7 @@ const maxPackagesUnderWeightLimit = (packages, weightLimit) => {
   };
   
   console.log(maxPackagesUnderWeightLimit([2,2,2,2,3,4,5], 10));
+  
   /*
   Time complexity is O(nlogn)
   Space complexity is O(n)
