@@ -1,5 +1,5 @@
 /*
-Given a dynamic arraylist which contains integers, create a solution which finds the minimum value integer in O(1) complexity (not O(n))
+Given a dynamic arraylist of integers, create a solution which finds the minimum value integer in O(1) complexity (not O(n))
 */
 smallestInteger = (stack,numbers,k) => {
 	if (stack.length == 0){

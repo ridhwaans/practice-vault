@@ -16,6 +16,7 @@ Do this in O(n) time and O(k) space. You can modify the input array in-place and
 
 fun1 = function(array, k){
     let maxes = []
+    console.log(array);
     for (i = 0; i < array.length-1; i++){
         let j = i + k;
         if (j > array.length){
