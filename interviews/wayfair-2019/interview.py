@@ -62,8 +62,10 @@ Count the number of employees for each salary bracket
 from employees group by salary_group
 
 What happens when you write to the database at the same time?
-https://stackoverflow.com/questions/13087197/what-happens-when-multiple-simultaneous-update-requests-received-for-a-sql-table/13087311#13087311
-https://stackoverflow.com/questions/32087233/how-does-mysql-handle-concurrent-inserts
+https://stackoverflow.com/questions/64517440/in-databases-is-row-level-locking-an-example-of-acid-optimistic-concurrency-o  
+https://stackoverflow.com/questions/13087197/what-happens-when-multiple-simultaneous-update-requests-received-for-a-sql-table/13087311#13087311  
+https://stackoverflow.com/questions/32087233/how-does-mysql-handle-concurrent-inserts  
+https://www.postgresql.org/docs/9.1/explicit-locking.html  
 
 Design a SQL schema for movies with movie titles, genre, actors, year
 
