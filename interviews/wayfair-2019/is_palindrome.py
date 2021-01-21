@@ -1,12 +1,13 @@
 '''
 Check if a string is a palindrome. Ignore all special characters, whitespace, numbers
 '''
+#!/usr/bin/env python2.7
 import re
 import mock
 import pytest
 
-def isPalindrome():
-    input_string = raw_input("Enter a string to check for palindrome: ") #raw_input is python2.7+ only
+def is_palindrome():
+    input_string = raw_input("Enter a string to check for palindrome: ") 
     input_string = re.sub('[^a-zA-Z]+','',input_string)
     input_string = input_string.lower() # case_fold() is python3
     reverse_string = ''.join(reversed(input_string))  
@@ -17,34 +18,36 @@ def isPalindrome():
     else:
         return "not a palindrome"
 
-# python -m pytest interview.py
-def test_isPalindrome():
+# python -m pytest is_palindrome.py
+# raw_input, __built_in__ are python2.7+
+def test_is_palindrome():
     with mock.patch('__builtin__.raw_input', return_value=""):
-        assert isPalindrome() == "invalid"
+        assert is_palindrome() == "invalid"
     with mock.patch('__builtin__.raw_input', return_value="   "):
-        assert isPalindrome() == "invalid"
+        assert is_palindrome() == "invalid"
     with mock.patch('__builtin__.raw_input', return_value="  ? . , "):
-        assert isPalindrome() == "invalid"
+        assert is_palindrome() == "invalid"
     with mock.patch('__builtin__.raw_input', return_value="racecar"):   
-        assert isPalindrome() == "is a palindrome"
+        assert is_palindrome() == "is a palindrome"
     with mock.patch('__builtin__.raw_input', return_value="rAce Car"):
-        assert isPalindrome() == "is a palindrome"
+        assert is_palindrome() == "is a palindrome"
     with mock.patch('__builtin__.raw_input', return_value="race c$ar?"):
-        assert isPalindrome() == "is a palindrome"
+        assert is_palindrome() == "is a palindrome"
     with mock.patch('__builtin__.raw_input', return_value="racecarwrong"):
-        assert isPalindrome() == "not a palindrome"
+        assert is_palindrome() == "not a palindrome"
     with mock.patch('__builtin__.raw_input', return_value="@ra$cecarWrong"):
-        assert isPalindrome() == "not a palindrome"
+        assert is_palindrome() == "not a palindrome"
 
 if __name__ == "__main__":
-    isPalindrome()
-    #test_isPalindrome()
+    print is_palindrome()
+    #test_is_palindrome()
 
 '''
 Time complexity is O(n). Worst case O(n^2) because of reversed() and join()
 Space complexity is O(n)
-'''
-'''
+
+INTERVIEW:
+
 List departments which do not have employees in them
 
 > SELECT d.name FROM departments AS d LEFT OUTER JOIN employees AS e on d.id = e.department_id WHERE e.department_id IS NULL
