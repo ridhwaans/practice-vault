@@ -10,10 +10,13 @@ For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120
 Follow-up: what if you can't use division?
 """
 
-def productArr(numbers)
-    numbers.map do |num|
-        (numbers - [num]).inject(:*)
+def productArr(a)
+    a.each_index.map do |i|
+      b = a.dup
+      b.delete_at(i)
+      b.reduce(:*)
     end
-end
-
-print productArr([1,2,3,4,5]), productArr([3,2,1])
+  end
+  
+  
+  print productArr([1,2,3,4,5]), productArr([3,2,1])
