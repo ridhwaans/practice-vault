@@ -1,4 +1,6 @@
 /*
+This question was asked by The Pokemon Company, Karat (2020)
+
 Suppose there is a graph of relationships between parents and children over multiple generations.
 The data is formatted as a list of (parent, child) pairs.
 
