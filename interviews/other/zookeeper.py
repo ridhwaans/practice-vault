@@ -32,40 +32,54 @@
 # The watcher should accept two arguments - the path that was changed and the value that was set
 
 class Zookeeper():
-    store = {"/"}
+    store = {"/":None}
     def create(self, path, value):
-        if validate(self.path):
+        if self.validate(path):
             self.store[path] = value
         else:
-            raise KeyError
-
+            pass
+            #raise KeyError("create error: {} invalid".format(path))
+    
+    def read(self, path):
+        if path in self.store.keys():
+            return self.store[path]
+        else:
+            return "read error: {} does not exist".format(path)
+    
     def update(self, path, value):
-        if path in store.values():
+        if path in self.store.keys():
             self.store[path] = value
         else:
-            raise KeyError
+            return "update error: {} does not exist".format(path)
 
     def validate(self, path):
         if path is None:
             return False
-        if len(path) == 0:
+        if len(path.strip()) == 0:
             return False
         if path[0] != "/":
             return False
-        if path[0:path.rindex["/"]] not in self.store.keys():
+        if path.rindex("/") == path.index("/"):
+            return True
+        if path[0:path.rindex("/")] not in self.store:
             return False
-        if path in self.store.keys():
+        if path in self.store:
             return False
         return True
 
+
 zk = Zookeeper()
+zk.create("/app1", "/app1 value")
+print(zk.read("/app1"))
+
 zk.create("/app1/p1", "/app1/p1 value")
 print(zk.read("/app1/p1"))
-zk.create("/app1/p1", "/app1/p1 value")
-print(zk.read("/app1/p1"))
+
 zk.create("/p1/p1", "/p1/p1 value")
 print(zk.read("/p1/p1"))
+
 zk.create("/p1", "/p1 value")
 print(zk.read("/p1"))
+
 zk.create("/p1/p1", "/p1/p1 value")
 print(zk.read("/p1/p1"))
