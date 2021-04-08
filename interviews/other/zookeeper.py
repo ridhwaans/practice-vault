@@ -6,9 +6,12 @@
 # Every mapping has a parent whose path is a prefix with one less element; the exception to this rule is root ("/") which has no parent.
 # Unlike a regular file system, all these mappings can have both data (so it acts like a file) and children (so it acts like a directory)
 #
-# /
-# /app1, /app2 ...
-# /app1/p1, /app1/p2, /app1/p3 ...
+#                         (tree visualization example)
+#                                    "/"  
+#                      /                             \
+#                  "/app1"                        "/app2" ...
+#     /            /         \
+# "/app1/p1"  "/app1/p2" "/app1/p3" ... 
 #
 # create(path, value)
 # Creates a new path-value mapping in the zookeeper
