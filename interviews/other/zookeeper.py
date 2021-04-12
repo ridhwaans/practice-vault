@@ -71,7 +71,26 @@ class Zookeeper():
         return True
 
 
-zk = Zookeeper()
+class WatchableZookeeper(Zookeeper):
+    def __init__(self):
+        self.listeners = {}
+        super().__init__()
+        
+
+    def watch(self, path, listener):
+        self.listeners.setdefault(path, []).append(listener)
+    
+    def update(self, path, value):
+        super().update(path, value)
+        for listener in self.listeners.get(path):
+            listener(path, value)
+            
+    def create(self, path, value):
+        super().update(path, value)
+        for listener in self.listeners.get(path):
+            listener(path, value)
+
+zk = WatchableZookeeper()
 zk.create("/app1", "/app1 value")
 print(zk.read("/app1"))
 
