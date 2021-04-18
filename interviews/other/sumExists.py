@@ -20,7 +20,7 @@ duplicates are allowed
 array is not sorted
 '''
 
-def checkSum(nums, target):
+def sumExists(nums, target):
     return sumHelper(nums, target, 0, {})
     
     
@@ -40,9 +40,9 @@ def sumHelper(nums, target, current_sum, cached_results):
            return True
     return False
 
-print(checkSum([5,3,4,7], 7))
-print(checkSum([4,2], 7))
-print(checkSum([1], 7))
+print(sumExists([5,3,4,7], 7))
+print(sumExists([4,2], 7))
+print(sumExists([1], 7))
 
 # Comeplexity
 # time O(n^m)
