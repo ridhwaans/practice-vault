@@ -1,4 +1,4 @@
-# This question was asked by Twitch, 2021
+# This question was asked by Twitch (2021)
 #
 # 1) Create a type of a linked list
 # 2) Given a sentence, return a version of the linked list. Write test cases to verify that it works
