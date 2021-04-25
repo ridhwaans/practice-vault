@@ -76,7 +76,6 @@ def findRectangle(image)
   
   image.each_with_index do |row, r_i|
     row.each_with_index do |col, c_i|
-      #print r_i, c_i
       if image[r_i][c_i] == 0
         zeroes = gridHelper(image, [], r_i, c_i)
       end
@@ -103,7 +102,7 @@ def gridHelper(image, zeroes, i , j)
   gridHelper(image, zeroes, i, j + 1)
   gridHelper(image, zeroes, i, j - 1)
   
-  zeroes
+  zeroes.sort
 end
 
 image1 = [
@@ -147,3 +146,7 @@ puts(findRectangle(image2))
 puts(findRectangle(image3))
 puts(findRectangle(image4))
 puts(findRectangle(image5))
+
+# Complexity: 
+# time: O(n) best case. O(nlogn) otherwise because of sort
+# space: O(1)

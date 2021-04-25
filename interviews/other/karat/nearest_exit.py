@@ -61,10 +61,6 @@ Recursive function DFS():
     Explore surrounding cells for possible paths ('0')
     for each path:
         call DFS()
-        
-Complexity:
-time: O(M*N)
-space: O(1) if modifying input. O(N*M) otherwise
 '''
 
 def find_exit(board, start):
@@ -135,3 +131,7 @@ board = [
 ]
 
 print(find_exit(board, [4,5]))
+
+# Complexity:
+# time: O(M*N)
+# space: O(1) if modifying input. O(N*M) otherwise
