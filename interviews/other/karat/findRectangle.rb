@@ -67,6 +67,45 @@
 # n: number of rows in the input image
 # m: number of columns in the input image
 
+def findRectangle(image)
+  zeroes = []
+  
+  if image.length <= 1
+    [0,0, 0,0] 
+  end
+  
+  image.each_with_index do |row, r_i|
+    row.each_with_index do |col, c_i|
+      #print r_i, c_i
+      if image[r_i][c_i] == 0
+        zeroes = gridHelper(image, [], r_i, c_i)
+      end
+    end
+  end
+  
+  return "#{zeroes[0].join(",")} #{zeroes[-1].join(",")}"
+end
+
+def gridHelper(image, zeroes, i , j)
+  if (i < 0 or j < 0 or i >= image.length or j >= image[0].length)
+    return
+  end
+
+  if image[i][j] != 0
+    return
+  end
+  
+  zeroes << [i,j]
+  image[i][j] = 2
+  
+  gridHelper(image, zeroes, i + 1, j)
+  gridHelper(image, zeroes, i - 1, j)
+  gridHelper(image, zeroes, i, j + 1)
+  gridHelper(image, zeroes, i, j - 1)
+  
+  zeroes
+end
+
 image1 = [
   [1, 1, 1, 1, 1, 1, 1],
   [1, 1, 1, 1, 1, 1, 1],
@@ -103,46 +142,8 @@ image5 = [
   [0]
 ]
 
-
-def rectangleSearch(image)
-  zeroes = []
-  
-  if image.length <= 1
-    [0,0, 0,0] 
-  end
-    
-  count = 0
-  image.each_with_index do |row, r_i|
-    puts row, r_i
-    row.each_with_index do |item, c_i|
-      if image[r_i][c_i] == 0
-        gridHelper(image, zeroes, r_i, c_i)
-        count += 1
-      end
-    end
-  end
-  
-  [zeroes[0], zeroes[-1]]
-end
-
-def gridHelper(image, zeroes, i , j)
-  if i < 0 or j >= image.length or i >= image[0].length or j < 0
-    return
-  end
-  zeroes << [i,j]
-  
-  gridHelper(image, zeroes,i + 1, j)
-  gridHelper(image, zeroes, i - 1, j)
-  gridHelper(image, zeroes, i, j + 1)
-  gridHelper(image, zeroes, i, j - 1)
-end
-
-#puts rectangleSearch([0])
-
-puts rectangleSearch([
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 1, 1, 1, 1],
-  [1, 1, 1, 0, 0, 0, 1],
-  [1, 1, 1, 0, 0, 0, 1],
-  [1, 1, 1, 1, 1, 1, 1],
-])
+puts(findRectangle(image1))
+puts(findRectangle(image2))
+puts(findRectangle(image3))
+puts(findRectangle(image4))
+puts(findRectangle(image5))
