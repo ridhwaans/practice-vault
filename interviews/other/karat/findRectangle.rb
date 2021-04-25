@@ -68,7 +68,8 @@
 # m: number of columns in the input image
 
 def findRectangle(image)
-  zeroes = []
+  min, max = 0, 2**32 - 1
+  coords = [[max,max], [min,min]]
   
   if image.length <= 1
     [0,0, 0,0] 
@@ -77,15 +78,15 @@ def findRectangle(image)
   image.each_with_index do |row, r_i|
     row.each_with_index do |col, c_i|
       if image[r_i][c_i] == 0
-        zeroes = gridHelper(image, [], r_i, c_i)
+        coords = gridHelper(image, coords, r_i, c_i)
       end
     end
   end
   
-  return "#{zeroes[0].join(",")} #{zeroes[-1].join(",")}"
+  return "#{coords[0].join(",")} #{coords[-1].join(",")}"
 end
 
-def gridHelper(image, zeroes, i , j)
+def gridHelper(image, coords, i , j)
   if (i < 0 or j < 0 or i >= image.length or j >= image[0].length)
     return
   end
@@ -94,15 +95,17 @@ def gridHelper(image, zeroes, i , j)
     return
   end
   
-  zeroes << [i,j]
+  coords[0] = [[i, j], coords[0]].min
+  coords[1] = [[i, j], coords[1]].max
+
   image[i][j] = 2
   
-  gridHelper(image, zeroes, i + 1, j)
-  gridHelper(image, zeroes, i - 1, j)
-  gridHelper(image, zeroes, i, j + 1)
-  gridHelper(image, zeroes, i, j - 1)
+  gridHelper(image, coords, i + 1, j)
+  gridHelper(image, coords, i - 1, j)
+  gridHelper(image, coords, i, j + 1)
+  gridHelper(image, coords, i, j - 1)
   
-  zeroes.sort
+  coords
 end
 
 image1 = [
@@ -148,5 +151,5 @@ puts(findRectangle(image4))
 puts(findRectangle(image5))
 
 # Complexity: 
-# time: O(n) best case. O(nlogn) otherwise because of sort
-# space: O(1)
+# time: O(N*M) 
+# space: O(1) if modifying input. O(N*M) otherwise
