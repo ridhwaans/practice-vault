@@ -45,8 +45,6 @@ class Game
     raise BowlingError if @frames[9].rolls[1] == "/" && @frames[10].rolls.size == 1
     raise BowlingError if @frames[9].rolls == "X" && @frames[10].rolls.size == 2
 
-    #p "current frame: #{@curr}"
-    #p "pins: #{pins}"
     @frames[@curr].roll(pins)
     if @frames[@curr].filled?
       @curr += 1 
@@ -102,19 +100,16 @@ class Game
       end
     end
     score += fill_ball.to_i
-    #p "10th frame score #{score}"
     score
   end
 
   def score
-    #self.print_frames
     raise BowlingError if self.get_all_rolls_from_previous_n_frames.size == 0 || @frames[9].filled? == false
     raise BowlingError if ( ["/","X"].any? {|letter| @frames[9].rolls.include?(letter)} ) && @frames[10].rolls.size == 0
 
     @total = 0
     all_rolls = self.get_all_rolls_from_previous_n_frames() 
     tenth = self.roll_number_of_nth_frame(9) # calculate tenth frame separately
-    #p all_rolls
     all_rolls.each_with_index do |roll, i|
       break if i == tenth
       score = 0
@@ -133,9 +128,7 @@ class Game
         score += 10 if all_rolls[i] == "X"
         bonus_rolls -= 1
       end
-      #p "score #{score}"
       @total += score
-      #p "total #{@total}"
     end
     @total += self.calculate_tenth
     @total
