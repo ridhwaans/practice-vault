@@ -84,13 +84,15 @@ class WatchableZookeeper(Zookeeper):
     
     def update(self, path, value):
         super().update(path, value)
-        for listener in self.listeners.get(path):
-            listener(path, value)
+        if self.listeners.get(path):
+            for listener in self.listeners.get(path):
+                listener()
             
     def create(self, path, value):
-        super().update(path, value)
-        for listener in self.listeners.get(path):
-            listener(path, value)
+        super().create(path, value)
+        if self.listeners.get(path):
+            for listener in self.listeners.get(path):
+                listener()
 
 zk = WatchableZookeeper()
 zk.create("/app1", "/app1 value")
@@ -107,3 +109,12 @@ print(zk.read("/p1"))
 
 zk.create("/p1/p1", "/p1/p1 value")
 print(zk.read("/p1/p1"))
+
+def notification():
+    print("notification: parent changed")
+    
+zk.watch("/app1", notification)
+
+zk.update("/app1", "new /app1 value")
+
+zk.update("/p1", "new /p1 value")
