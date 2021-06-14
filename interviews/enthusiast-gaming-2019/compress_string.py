@@ -3,6 +3,7 @@ Given a non-empty string, create a function to return a compressed string that c
 For example, given the string 'aaabbbbcca', return 'a3b4c2a'. Assume that the function takes in only letters case insensitive, 
 and compressed string has to be smaller than the original string
 '''
+#!/usr/bin/env python2.7
 def compress_string(original_string):
     try:
         validate(original_string)

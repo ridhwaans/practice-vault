@@ -1,0 +1,29 @@
+2. Given a string and a list of number, split the string according to the list and swap it. Return the swapped string.
+For example: given "descognail" and [3,2,3,1,1]
+We split the string as "des" = 3, "co" = 2, "gna" = 3, "i" = 1, "l" = 1 like the list
+Then we swap "des" with "co", "gna" with "i" and left with "l" (no swap). We then have "codesignal" isntead of the original "descognail". Then return "codesignal".
+
+
+String split(String str, int[] arr){
+    String[] sparr = new String[arr.length];
+    int idx=0,strt=0;
+    for(int len:arr){
+        sparr[idx++] = str.substring(strt,strt+len);
+        strt+=len;
+    }
+    StringBuilder sb = new StringBuilder();
+    for(int i=1;i<sparr.length; i+=2){
+        sb.append(sparr[i]);
+        sb.append(sparr[i-1]);
+    }
+    if(sparr.length%2==1) sb.append(sparr[sparr.length-1]);
+    return sb.toString();
+}
+
+sum of perfect squares
+
+
+pythagorean triplets in an array
+https://www.educative.io/edpresso/how-to-find-pythagorean-triplets-in-an-array
+
+newspaper center justify

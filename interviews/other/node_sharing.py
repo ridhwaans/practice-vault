@@ -1,5 +1,5 @@
 '''
-node-sharing
+node_sharing
 In a server cluster there are three different types of nodes, denoted by T1, T2, T3
 Each node is unique. Each node is also limited to one fixed type
 The minimum quantity of nodes that can exist in the cluster for each type T1, T2 and T3 is 0 (zero)
