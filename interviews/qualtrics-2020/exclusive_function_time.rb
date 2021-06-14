@@ -10,7 +10,7 @@
 # Assumptions:
 # 1 <= n <= 100
 # Two functions wont start or end at the same time
-# Functions will always long when they exit
+# Functions will always log when they exit
 
 
 def exclusive_function_time(n, timestamps)

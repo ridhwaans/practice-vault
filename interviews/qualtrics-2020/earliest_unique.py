@@ -4,7 +4,7 @@ example:
 d e f d -> e
 a a a b -> b
 '''
-#!/usr/bin/python2
+#!/usr/bin/env python2.7
 import sys
 
 def earliest_unique(characters = []):
