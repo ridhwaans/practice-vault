@@ -4,3 +4,36 @@ Missing Dice Rolls
 rover OOP ruby
 
 spotify api search for albums and artists, also sort by popularity
+
+Given a 2-d array of integers, find the largest non-contiguous size or largest area.
+Integers can move in four directions, up, down, left, and right.
+Grid can contain any integer number
+If two different integers have the same biggest size, return any first
+
+Example
+[ [0, 1, 2, 3],
+[1, 2, 1, 0],
+[1, 5, 6, 1],
+[1, 8, 3, 4] ]
+
+Answer is 3 (for the integer 1)
+
+[ [ 1, 0, 12, 1 ],
+[ 7, 3, 2, 5 ],
+[ -5, 2, 2, -9 ] ]
+
+Answer is 3 (for the integer 2)
+
+[ [ 5, 5, 5]
+[5, 2, 5 ]
+[5, 5, 5 ] ]
+
+Answer is 8 (for the integer 5)
+https://leetcode.com/discuss/interview-question/1341813/Largest-non-contiguous-size-in-2-d-array-or-Amazon-Coding-assessment
+
+
+population country API pagination
+
+two character caesar encrypt/decrypt
+
+skateboard & rocket grid search DFS

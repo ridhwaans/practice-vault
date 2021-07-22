@@ -18,7 +18,6 @@ Implement a release_hardware function that does the following:
 Ending question:
 What is the time/space complexity of the data structure/algorithm?
 '''
-
 from collections import defaultdict
 class Node:
     def __init__(self, node_type):

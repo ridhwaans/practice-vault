@@ -1,6 +1,8 @@
-// This question was asked by CircleCI, Karat (2021)
+/*
+This question was asked by CircleCI, Karat (2021)
 
-// Rewrite the following function using default parameters or destructured parameters
+Rewrite the following greet function using default parameters or destructured parameters
+*/
 function greet(name, greeting) {
     name = (typeof name !== 'undefined') ?  name : 'Student';
     greeting = (typeof greeting !== 'undefined') ?  greeting : 'Welcome';

@@ -1,3 +1,8 @@
+/*
+This question was asked by Loblaw Digital (2021)
+
+Given an array of integers, find the minimum number of removals necessary to make the array less than or equal to half its size
+*/
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;

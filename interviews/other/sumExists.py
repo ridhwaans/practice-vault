@@ -1,5 +1,5 @@
 '''
-This question was asked by interviewing.io
+This question was asked in a mock interview on interviewing.io
 Given an array of integers, check if any sum of numbers can equal to a target sum
 
 target: 7

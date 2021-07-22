@@ -12,7 +12,6 @@
 # Two functions wont start or end at the same time
 # Functions will always log when they exit
 
-
 def exclusive_function_time(n, timestamps)
     ftimes = [0] * n
     stack = [] # the ids of function calls

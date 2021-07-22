@@ -1,5 +1,5 @@
 '''
-This question was asked by RideOS
+This question was asked by RideOS (2019)
 
 Given a road network, could be bidirectional, determine if a path exists between an origin and destination node
 '''

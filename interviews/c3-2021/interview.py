@@ -1,19 +1,19 @@
-# Create a function to generate a random, 8-character password.
-# It should satisfy the following requirements:
+'''
+Create a function to generate a random, 8-character password.
+It should satisfy the following requirements:
 
-# 1) There should be exactly two characters from each of the following categories:
-# - Uppercase letters
-# - Lowercase letters
-# - Numerals 0 - 9
-# - Special Characters from the string “!@#$%^&*”
+1) There should be exactly two characters from each of the following categories:
+- Uppercase letters
+- Lowercase letters
+- Numerals 0 - 9
+- Special Characters from the string “!@#$%^&*”
 
-# 2) No two character categories should be adjacent.
-# bad example: AXyu74$^
+2) No two character categories should be adjacent.
+bad example: AXyu74$^
 
-# 3) The categories should be randomly ordered.
-# good example: 8b&U6Nz!  NLSUNULS
-
-
+3) The categories should be randomly ordered.
+good example: 8b&U6Nz!  NLSUNULS
+'''
 import string
 import random
 

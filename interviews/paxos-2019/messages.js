@@ -16,7 +16,6 @@ How would you improve your deployment process if you needed to maintain this app
 I would introduce a CI/CD system with automated test coverage  
 Deploy automation and version control will help with fast updates and rollbacks  
 */
-
 var crypto = require('crypto');
 const express = require('express');
 const app = express();

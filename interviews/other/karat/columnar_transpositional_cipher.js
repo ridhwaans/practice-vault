@@ -1,5 +1,8 @@
-// This question was asked by Compass, Karat (2021)
+/* 
+This question was asked by Compass, Karat (2021)
 
+Given a plain-text message and a numeric key, cipher/de-cipher the given text using Columnar Transposition Cipher
+*/
 function to_grid(sentence, row_length){
     var grid = [];
     var current_row;

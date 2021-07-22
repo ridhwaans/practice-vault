@@ -1,7 +1,6 @@
 '''
 An array is monotonic if it is either monotone increasing or monotone decreasing.
 '''
-
 def monotonic(A):
     increasing = decreasing = True
     for i in range(len(A) - 1):
