@@ -40,4 +40,7 @@ skateboard & rocket grid search DFS
 
 deep diff two objects/json. could be nested object, array or plain value
 
-LRU cache, 33. Search in Rotated Sorted Array
+
+system design
+
+battleship 2d array, hit or miss
