@@ -1,46 +1,47 @@
 # Two Fer
 
+Welcome to Two Fer on Exercism's JavaScript Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 `Two-fer` or `2-fer` is short for two for one. One for you and one for me.
 
+Given a name, return a string with the message:
+
 ```text
-"One for X, one for me."
+One for name, one for me.
 ```
 
-When X is a name or "you".
+Where "name" is the given name.
 
-If the given name is "Alice", the result should be "One for Alice, one for me."
-If no name is given, the result should be "One for you, one for me."
+However, if the name is missing, return the string:
 
-
-## Setup
-
-Go through the setup instructions for JavaScript to install the
- necessary dependencies:
-
-http://exercism.io/languages/javascript/installation
-
-## Running the test suite
-
-The provided test suite uses [Jasmine](https://jasmine.github.io/).
-You can install it by opening a terminal window and running the
-following command:
-
-```sh
-npm install -g jasmine
+```text
+One for you, one for me.
 ```
 
-Run the test suite from the exercise directory with:
+Here are some examples:
 
-```sh
-jasmine two-fer.spec.js
-```
-
-In many test suites all but the first test have been marked "pending".
-Once you get a test passing, activate the next one by changing `xit` to `it`.
+| Name   | String to return            |
+| :----- | :-------------------------- |
+| Alice  | One for Alice, one for me.  |
+| Bob    | One for Bob, one for me.    |
+|        | One for you, one for me.    |
+| Zaphod | One for Zaphod, one for me. |
 
 ## Source
 
-This is an exercise to introduce users to basic programming constructs, just after Hello World. [https://en.wikipedia.org/wiki/Two-fer](https://en.wikipedia.org/wiki/Two-fer)
+### Created by
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+- @laurmurclar
+
+### Contributed to by
+
+- @mluisamc
+- @serixscorpio
+- @SleeplessByte
+
+### Based on
+
+https://github.com/exercism/problem-specifications/issues/757

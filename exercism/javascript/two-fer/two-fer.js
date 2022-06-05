@@ -1,15 +1,6 @@
-var TwoFer = function () {};
-
-TwoFer.prototype.twoFer = function (who) {
-	return "One for {0}, one for me.".format((who == null || who.trim() == "") ? "you" : who);
-};
-
-String.prototype.format = function() {
-  a = this;
-  for (k in arguments) {
-    a = a.replace("{" + k + "}", arguments[k])
+export const twoFer = (who) => {
+  if (who == null || who.trim() == "") {
+    who = 'you';
   }
-  return a
+  return `One for ${who}, one for me.`;
 }
-
-module.exports = TwoFer;

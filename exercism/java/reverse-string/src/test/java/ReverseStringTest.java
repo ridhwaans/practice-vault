@@ -30,4 +30,8 @@ public class ReverseStringTest {
         assertEquals("racecar", new ReverseString().reverse("racecar"));
     }
 
+    @Test
+    public void testAnEvenSizedWord() {
+        assertEquals("reward", new ReverseString().reverse("drawer"));
+    }
 }

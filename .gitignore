@@ -1,5 +1,7 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
+.exercism
+
 # lock files
 package-lock.json
 yarn.lock
@@ -7,6 +9,7 @@ yarn.lock
 # dependencies
 node_modules/
 .gradle/
+**/build/
 \.classpath
 \.project
 \.settings/

@@ -19,4 +19,3 @@ class ReverseString {
     	return input;
     }
 }
-
