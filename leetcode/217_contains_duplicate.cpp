@@ -1,7 +1,10 @@
+#include <unordered_map>
+#include <vector>
+
 class Solution {
 public:
-    bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,int> bookkeeping;
+    bool containsDuplicate(std::vector<int>& nums) {
+        std::unordered_map<int,int> bookkeeping;
         for (auto i: nums) {
             bookkeeping[i] = bookkeeping[i] + 1;
         }
