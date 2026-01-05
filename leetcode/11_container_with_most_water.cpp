@@ -1,7 +1,6 @@
 #include <iostream>
 #include <algorithm>
 #include <climits>
-//#include <bits/stdc++.h>
 
 class Solution {
 public:
@@ -13,13 +12,29 @@ public:
         }
             return new_max;
     }
-    int maxArea(std::vector<int>& height) {
+    int maxAreaBruteForce(std::vector<int>& iheight) {
         int area = INT_MIN;
-        for (int i = 0; i < height.size(); i++){
-                std::vector<int> subarr(height.begin() + i, height.end());
+        for (int i = 0; i < iheight.size(); i++){
+                std::vector<int> subarr(iheight.begin() + i, iheight.end());
                 area = helper(area, i, subarr);
         }
         return area;
+    }
+
+    int maxArea(std::vector<int>& height){
+            int l = 0, r = height.size() - 1;
+            int maxArea = INT_MIN;
+            while (l < r){
+                int area = (r - l) * std::min(height[l], height[r]);
+                maxArea = std::max(area, maxArea);
+                if (height[l] < height[r]){
+                        maxArea = area; 
+                        l++;
+                } else {
+                        r--;
+                }
+            }
+            return maxArea;
     }
 };
 
