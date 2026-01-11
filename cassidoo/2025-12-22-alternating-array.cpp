@@ -40,5 +40,4 @@ int main( int argc, char *argv[] ){
     }
 }
 
-// pbpaste > 2025-12-22_alternating_array.cpp && g++ -std=c++11 2025-12-22_alternating_array.cpp -o 2025-12-22_alternating_array && ./2025-12-22_alternating_array
 
