@@ -6,48 +6,46 @@ using namespace std;
 
 class Solution {
 public:
-    bool wordBreak(string s, vector<string>& wordDict) {
-        vector<bool> canBreak(s.size() + 1, false);
-        canBreak[0] = true;
+  bool wordBreak(string s, vector<string> &wordDict) {
+    vector<bool> canBreak(s.size() + 1, false);
+    canBreak[0] = true;
 
-        for (size_t i = 1; i <= s.size(); i++) {
-            for (size_t j = 0; j < wordDict.size(); j++) {
-                if (i >= wordDict[j].size() &&
-                    canBreak[i - wordDict[j].size()] &&
-                    s.compare(
-                        i - wordDict[j].size(),
-                        wordDict[j].size(),
-                        wordDict[j]
-                    ) == 0) {
+    for (size_t i = 1; i <= s.size(); i++) {
+      for (size_t j = 0; j < wordDict.size(); j++) {
+        if (i >= wordDict[j].size() && canBreak[i - wordDict[j].size()] &&
+            s.compare(i - wordDict[j].size(), wordDict[j].size(),
+                      wordDict[j]) == 0) {
 
-                    canBreak[i] = true;
-                    break;
-                }
-            }
+          canBreak[i] = true;
+          break;
         }
-        return canBreak[s.size()];
+      }
     }
+    return canBreak[s.size()];
+  }
 };
 
 struct TestCase {
-    string s;
-    vector<string> wordDict;
-    bool output;
+  string s;
+  vector<string> wordDict;
+  bool output;
 };
-int main(int argc, char** argv){
-    Solution solution;
-    vector<TestCase> testCases = {
-    {"applepenapple", {"apple", "pen"}, true},
-    {"catsandog", {"cats", "dog", "sand", "and", "cat"}, false},
-   };
-    for (const auto& testCase : testCases){
-        cout << "input: \"" << testCase.s << "\" wordDict = [";
-        for (int i = 0; i < testCase.wordDict.size(); i++){
-                cout << "\"" << testCase.wordDict[i] << "\"";
-                if (i != testCase.wordDict.size() - 1) cout << ", ";
-        }
-        vector<string> dictCopy = testCase.wordDict;
-        cout << "] output: " << boolalpha << solution.wordBreak(testCase.s, dictCopy) << " expected: " << testCase.output << endl;
+int main(int argc, char **argv) {
+  Solution solution;
+  vector<TestCase> testCases = {
+      {"applepenapple", {"apple", "pen"}, true},
+      {"catsandog", {"cats", "dog", "sand", "and", "cat"}, false},
+  };
+  for (const auto &testCase : testCases) {
+    cout << "input: \"" << testCase.s << "\" wordDict = [";
+    for (int i = 0; i < testCase.wordDict.size(); i++) {
+      cout << "\"" << testCase.wordDict[i] << "\"";
+      if (i != testCase.wordDict.size() - 1)
+        cout << ", ";
     }
+    vector<string> dictCopy = testCase.wordDict;
+    cout << "] output: " << boolalpha
+         << solution.wordBreak(testCase.s, dictCopy)
+         << " expected: " << testCase.output << endl;
+  }
 }
-
