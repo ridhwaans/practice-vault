@@ -21,28 +21,24 @@ public:
       if (c == 'b')
         b_count++;
     }
-
-    if (abs(a_count - b_count) > 1)
-      return -1;
-
-    // helper lambda to count mismatches for a given starting char
-    auto countSwaps = [&](char first) {
-      int mismatches = 0;
-      for (int i = 0; i < n; i++) {
-        // alternating a and b one liner
-        char expected = (i % 2 == 0) ? first : (first == 'a' ? 'b' : 'a');
-        if (s[i] != expected)
-          mismatches++;
+    int swaps = 0;
+    for (int i = 0; i < s.size(); i++) {
+      if (i % 2 == 0 && s[i] != 'a' && a_count > 0) {
+        swaps++;
+        a_count--;
+        // b_count--;
+      } else if (i % 2 != 0 && s[i] != 'b' && b_count > 0) {
+        swaps++;
+        // a_count--;
+        b_count--;
+      } else {
+        if (s[i] == 'a')
+          a_count--;
+        if (s[i] == 'b')
+          b_count--;
       }
-      return mismatches / 2;
-    };
-
-    if (a_count > b_count)
-      return countSwaps('a');
-    if (b_count > a_count)
-      // start with b alternating
-      return countSwaps('b');
-    return min(countSwaps('a'), countSwaps('b'));
+    }
+    return swaps / 2;
   }
 };
 
