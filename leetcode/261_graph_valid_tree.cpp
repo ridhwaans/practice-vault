@@ -44,6 +44,9 @@ public:
       adj[pair[0]].insert(pair[1]);
       adj[pair[1]].insert(pair[0]);
     }
+    if (!dfs(visited, 0, -1, adj))
+      return false;
+
     for (pair<const int, unordered_set<int>> &p : adj) {
       cout << p.first << ": ";
       unordered_set<int> &items = p.second;
