@@ -20,13 +20,12 @@ void reorderList(struct ListNode *head) {
 
   // end of p1
   struct ListNode *p2Cur = slow->next;
-  // moved line below to avoid cutting the list before saving the second half
-  // error
+  // moved line below to avoid error cutting the list before saving the second half
   slow->next = NULL;
 
   // // reverse p2
-  // // time limit exceeded flawed logic did a local pair swap, not a full
-  // linked-list reversal while (p2Cur && p2Cur->next) {
+  // // time limit exceeded does a local pair swap, not a full linked-list reversal 
+  // while (p2Cur && p2Cur->next) {
   //     struct ListNode* p2Next =  p2Cur->next; // temp
   //     struct ListNode* nextPair = p2Next->next; // temp
   //     p2Cur->next = nextPair;
@@ -36,7 +35,7 @@ void reorderList(struct ListNode *head) {
   // }
 
   // reverse p2
-  struct ListNode *p2Prev = NULL;
+  struct ListNode *p2Prev = NULL; // head of already reversed portion
   while (p2Cur) {
     struct ListNode *p2Next = p2Cur->next;
 
