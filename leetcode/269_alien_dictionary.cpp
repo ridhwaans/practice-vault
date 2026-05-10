@@ -56,6 +56,7 @@ public:
       }
     }
 
+    // for DAGs, dfs building result in reverse order is topological sort
     // postorder traversal
     reverse(answer.begin(), answer.end());
     return answer;
