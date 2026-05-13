@@ -15,7 +15,7 @@ public:
     if (visited[course] == -1)
       visited[course] = 0; // visiting
 
-    // check the prereqs before course
+    // check courses that depend on this course
     for (const int prereq : adj[course]) {
       /*
       mistakes - do not reset because visited in not in this call only, it
@@ -45,10 +45,6 @@ public:
     unordered_map<int, vector<int>> adj;
     for (auto &p : prerequisites) {
       adj[p[1]].push_back(p[0]);
-    }
-
-    for (int i = 0; i < numCourses; i++) {
-      vector<int> prereqs;
     }
 
     for (int i = 0; i < numCourses; i++) {
