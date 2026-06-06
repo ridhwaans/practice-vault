@@ -6,5 +6,6 @@
 # allowed files
 !*.c
 !*.cpp
+!*.py
 !README.md
 
