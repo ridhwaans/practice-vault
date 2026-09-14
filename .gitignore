@@ -1,11 +1,7 @@
-# ignore everything in this dir
 *
-# allow directories
 !*/
-
-# allowed files
 !*.c
 !*.cpp
 !*.py
 !README.md
-
+!interview-practice/**
